@@ -1,0 +1,249 @@
+;;; .arrived  -*- mode: emacs-lisp; coding: iso-2022-7bit -*-
+;; This file is generated automatically by emacs-w3m v1.4.4.
+
+(("file:///mnt/clnx_shared/My Dropbox/site_material/main_page.html"
+  "main_page.html"
+  (19402 59822)
+  (19402 59829 140244)
+  nil
+  nil)
+ ("file:///home/kv/dropbox/site_material/main_page.html"
+  nil
+  (19386 15127)
+  (19402 59789 699649)
+  nil
+  nil)
+ ("http://stackoverflow.com/questions/59838/how-to-check-if-a-directory-exists-in-a-bash-shell-script"
+  "How to check if a directory exists in a bash shell script - Stack Overflow"
+  nil
+  (19349 21866 877497)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=bash+if+directory+exist&btnG=Google+Search"
+  "bash if directory exist - Google Search"
+  nil
+  (19349 21858 927377)
+  nil
+  nil)
+ ("http://www.linuxforums.org/forum/linux-programming-scripting/50267-how-do-i-check-if-directory-exists-display-doesnt-using-bash.html"
+  "How do i check if a directory exists and display that it doesn't using bash? - Linux Forums"
+  nil
+  (19349 21743 245632)
+  nil
+  nil)
+ ("http://www.google.com/"
+  "Google"
+  nil
+  (19349 21706 615079)
+  nil
+  nil)
+ ("http://colinux.wikia.com/wiki/AddSwapPartition"
+  "AddSwapPartition - coLinux"
+  (19338 61920)
+  (19339 17167 592480)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&ie=ISO-8859-1&q=colinux+swap+file&btnG=Search"
+  "colinux swap file - Google Search"
+  nil
+  (19339 17153 172263)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&ie=ISO-8859-1&q=cabal+parsec+install+memory&btnG=Search"
+  "cabal parsec install memory - Google Search"
+  nil
+  (19339 17134 41974)
+  nil
+  nil)
+ ("http://www.haskell.org/cabal/FAQ.html"
+  "Cabal FAQ"
+  (18978 34168)
+  (19339 16485 732195)
+  nil
+  nil)
+ ("http://www.haskell.org/cabal/FAQ.html#parsec-2-vs-3"
+  nil
+  nil
+  (19339 16485 732195)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=cabal+parse+install+memory&btnG=Google+Search"
+  "cabal parse install memory - Google Search"
+  nil
+  (19339 16462 221840)
+  nil
+  nil)
+ ("http://www.google.com"
+  nil
+  nil
+  (19339 16443 921564)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=parsec+ExitFailure+9&btnG=Google+Search"
+  "parsec ExitFailure 9 - Google Search"
+  nil
+  (19339 16336 729947)
+  nil
+  nil)
+ ("http://osdir.com/ml/beginners@haskell.org/2010-02/msg00026.html"
+  "[Haskell-beginners] Problems installing TagSoup.Parsec - msg#00026 - beginners@haskell.org"
+  nil
+  (19339 16332 49876)
+  nil
+  nil)
+ ("http://osdir.com/ml/beginners@haskell.org/2010-02/msg00070.html"
+  "Re: [Haskell-beginners] Problems installing TagSoup.Parsec - msg#00070 - beginners@haskell.org"
+  nil
+  (19339 16271 448962)
+  nil
+  nil)
+ ("http://www.google.com/ncr"
+  nil
+  nil
+  (19339 16197 907853)
+  nil
+  nil)
+ ("http://www.google.co.il/"
+  "Google"
+  nil
+  (19339 16185 287663)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&ie=ISO-8859-1&q=parsec+cabal+install+memory&btnG=Search"
+  "parsec cabal install memory - Google Search"
+  nil
+  (19339 12316 19341)
+  nil
+  nil)
+ ("http://www.haskell.org/cabal/FAQ.html#cabal-goes-into-an-infinite-loop--runs-out-of-memory"
+  nil
+  nil
+  (19338 57989 189715)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=parsec+haskell&btnG=Google+Search"
+  "parsec haskell - Google Search"
+  nil
+  (19338 57940 448979)
+  nil
+  nil)
+ ("http://legacy.cs.uu.nl/daan/parsec.html"
+  "Parsec"
+  (17236 58727)
+  (19338 57909 308510)
+  nil
+  nil)
+ ("http://old.nabble.com/Two-questions-regarding-Alex-Parsec-td18100048.html"
+  "Nabble - Haskell - Haskell-Cafe - Two questions regarding Alex/Parsec"
+  (19336 3657)
+  (19338 57659 194737)
+  nil
+  nil)
+ ("http://www.haskell.org/alex/doc/html/index.html"
+  "Alex User Guide"
+  (18235 3117)
+  (19338 56878 992967)
+  nil
+  nil)
+ ("http://www.haskell.org/alex/doc/html/introduction.html"
+  "Chapter,A (B2.,A (BIntroduction"
+  (18235 3116)
+  (19338 56762 261207)
+  nil
+  nil)
+ ("http://www.haskell.org/alex/"
+  "Alex"
+  (19145 51739)
+  (19338 56743 580925)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=lexer+alex+haskell&btnG=Google+Search"
+  "lexer alex haskell - Google Search"
+  nil
+  (19338 56725 870658)
+  nil
+  nil)
+ ("http://www.google.com/search?hl=en&source=hp&ie=ISO-8859-1&q=postoken+parsec+haskell&btnG=Google+Search"
+  "postoken parsec haskell - Google Search"
+  nil
+  (19338 56578 418433)
+  nil
+  nil)
+ ("http://maps.google.com/maps?hl=en&tab=wl"
+  "Google Maps"
+  nil
+  (19338 56554 828078)
+  nil
+  nil)
+ ("http://mail.google.com/mail/?hl=en&tab=lm"
+  nil
+  nil
+  (19338 56533 17749)
+  nil
+  nil)
+ ("http://maps.google.com/m?hl=en&oi=nojs"
+  nil
+  nil
+  (19338 54173 212242)
+  nil
+  nil)
+ ("http://trac.haskell.org/haskellmode-emacs/wiki/Tips"
+  "Tips - haskellmode-emacs - Trac"
+  nil
+  (19338 53363 860033)
+  nil
+  nil)
+ ("http://trac.haskell.org/haskellmode-emacs/wiki/Tips#Codenavigation"
+  nil
+  nil
+  (19338 53363 860033)
+  nil
+  nil)
+ ("http://trac.haskell.org/haskellmode-emacs/wiki/Tips#Someneattipsandtricksforusinghaskell-mode"
+  nil
+  nil
+  (19338 53363 860033)
+  nil
+  nil)
+ ("file:/tmp/burl2812hDb.html"
+  nil
+  (19338 52237)
+  (19338 52237 533043)
+  nil
+  nil)
+ ("file:/tmp/burl2812HvO.html"
+  nil
+  (19338 51845)
+  (19338 51846 147139)
+  nil
+  nil)
+ ("file:/tmp/burl1758uhO.html"
+  nil
+  (19338 51476)
+  (19338 51477 51571)
+  nil
+  nil)
+ ("file:/tmp/burl458Ckg.html"
+  nil
+  (19338 49540)
+  (19338 49540 412357)
+  nil
+  nil)
+ ("file:/tmp/burl4581Za.html"
+  nil
+  (19338 49530)
+  (19338 49530 602209)
+  nil
+  nil)
+ ("file:/tmp/burl458oPU.html"
+  nil
+  (19338 49487)
+  (19338 49487 11552)
+  nil
+  nil)
+ ("file:/tmp/burl458bFO.html"
+  nil
+  (19338 49269)
+  (19338 49270 328283)
+  nil
+  nil))

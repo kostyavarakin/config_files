@@ -1,0 +1,722 @@
+pwd
+ls ..
+ls
+ls
+mv queryParser.hs queryParser.lhs
+mv queryParser.lhs queryParser.hs
+cp /mnt/clnx_shared/highlight-parentheses.el ~/EMACS/lib/
+cp /mnt/clnx_shared/highlight-parentheses.el ~/EMACS/lib/
+wget --no-host-directories --recursive http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/ 
+ls
+ls svn
+rm -rf svn
+ls
+wget -r http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/ 
+ls
+cp -R emacspeak.googlecode.com/svn/trunk/lisp/g-client/ .
+ls
+cp g-client/* .
+cp -R g-client/* .
+ls
+rm -rf g-client
+rm -rf emacspeak.googlecode.com/
+ls
+make all
+make config
+make
+caball --version
+cabal --version
+ghc --version
+cabal install cabal-install --with-compiler=ghc-6.8.2
+cd haskell/
+cabal --version
+ghc --version
+cabal install parsec
+ls ~/.cabal/lib/parsec-2.1.0.1/
+ls ~/.cabal/lib/parsec-2.1.0.1/ghc-6.8.2/Text/ParserCombinators/Parsec
+ghc --version
+cabal install cabal-install --with-compiler=ghc-6.12.1
+cabal install 'parsec >= 3'
+cabal install cabal-install --with-compiler=ghc-6.12.1
+cabal install cabal-install --with-compiler=ghc-6.12.1
+cat /proc/meminfo 
+cat /proc/meminfo | grep 'MemFree\|MemTotal' | xargs -n6
+cat /proc/meminfo | grep 'MemFree\|MemTotal\|SwapFree\|SwapTotal' | xargs -n6
+cat /proc/meminfo | grep 'MemFree\|MemTotal\|SwapFree\|SwapTotal' | xargs -n12
+cat /proc/meminfo | grep 'MemFree\|MemTotal\|SwapFree\|SwapTotal' | xargs -n12exit
+exit
+cabal install cabal-install --with-compiler=ghc-6.12.1
+cabal install cabal-install --with-compiler=ghc-6.12.1
+cabal install cabal-install
+cabal install unix
+cabal install unix --reinstall
+cabal install array --reinstall
+cabal install cabal-install
+cabal install parsec
+cabal install 'parsec >= 3'
+ls ~/.cabal/lib/parsec-3.0.1/ghc-6.12.1/
+ls ~/.cabal/lib/parsec-3.0.1/ghc-6.12.1/Text/ParserCombinators/
+ls ~/.cabal/lib/parsec-3.0.1/ghc-6.12.1/Text/ParserCombinators/Parsec
+find ~/.cabal/ -iname 'string'
+find ~/.cabal/ -iname 's'
+find ~/.cabal/ -iname '*string*'
+find ~/.cabal/ -iname '*parsec.hi*'
+find ~/.cabal/ -iname '*parsec.hi*' | xargs -i{} ls -l {}
+exit
+su
+exit
+ls
+ls -a /mnt/clnx_shared/
+ls -a /mnt/clnx_shared/svn/
+ls -a /mnt/clnx_shared/svn/
+ls ~/
+ls -a ~/
+svn
+svn help
+echo $SVN
+echo $svn
+svnadmin help create
+svnadmin create --fs-type fsfs /mnt/clnx_shared/svn/xstream/
+ls -a /mnt/clnx_shared/svn/
+ls -la /mnt/clnx_shared/svn/
+svnadmin create --fs-type fsfs /mnt/clnx_shared/svn/xstream/
+ls -la /mnt/clnx_shared/svn/
+svnadmin create --fs-type fsfs /mnt/clnx_shared/svn/xstream/
+rm -rf /mnt/clnx_shared/svn/xstream
+ls /mnt/clnx_shared/svn/xstream
+ls /mnt/clnx_shared/svn/
+ls -la /mnt/clnx_shared/svn/
+svnadmin create --fs-type fsfs /mnt/clnx_shared/svn/xstream/
+svnadmin create --fs-type fsfs /mnt/clnx_shared/svn/xstream/
+ls -la /mnt/clnx_shared/svn/
+ls -la /mnt/clnx_shared/svn/xstream/
+rm -rf /mnt/clnx_shared/svn/xstream
+ls
+ls bin
+ls bin/dropbox/
+python bin/dropbox/dropbox.py stop
+head bin/dropbox/dropboxdir.py 
+ls
+rm dropbox.db.backup 
+rm fakelib.c 
+ls temp/
+rm -rf bin/dropbox/
+ls bin
+mr -rf ~/.dropbox/*
+rm -rf ~/.dropbox/*
+ls -a
+rm -rf ~/.dropbox/
+ls -a
+rm -rf ~/.dropbox-dist/
+ls -a
+ls /mnt/clnx_shared/
+ls
+mkdir svn
+ls
+cd svn
+svnadmin create help
+ls
+rm -rf help/
+ls
+svnadmin help create 
+svnadmin create --fs-type fsfs xstream
+ls
+cd xstream/
+svn help import
+ls
+ls -a
+ls -a ..
+ls
+pwd
+ls -a ..
+ks ~/haskell/
+ls ~/haskell/*
+ls -a ~/haskell/*
+ls
+ls
+pwd
+svn import . file:///home/kv/haskell/lexer_try0.hs 
+cd svn/xstream/
+ls -a
+ls -a ..
+ls -a ../
+ls -aR
+ls ../../haskell/
+ls -a ../../haskell/
+owd
+pwd
+ls -a
+pwd
+ls
+ls -Ra
+cd
+ls
+ls -a
+ls -a svn
+ls -a svn/xstream/
+cd svn/
+svnadmin create --fs-type fsfs ~/svn/emacs
+ls ~/svn
+svn import ~/svn/emacs/ file:///home/kv/EMACS
+cd haskell/ttt/xstream/
+ls
+ls ~
+ls ~/haskell/
+pwd
+ls -a
+ls ../wor*
+ls ../working_version
+ls ../../working_version
+rm -rf ../../working_version
+rm -rf ../../working_version
+ls ../../working_version
+ls ../../
+pwd
+~/bin/haskell/hasktags --help
+chmod u+x ~/bin/haskell/hasktags 
+~/bin/haskell/hasktags --help
+./~/bin/haskell/hasktags --help
+~/bin/haskell/hasktags 
+ls ~/bin/haskell/hasktags 
+ls -l ~/bin/haskell/hasktags 
+ls -l ~/bin/haskell/hasktags 
+cd ~
+ghc --make temp/hasktags-0.68/hasktags.hs 
+ghc --help
+ghc --make temp/hasktags-0.68/hasktags
+ghc --make temp/hasktags-0.68/hasktags.hs 
+ls bin/haskell/
+ls bin/haskell/hasktags 
+ls -l bin/haskell/hasktags 
+./bin/haskell/hasktags 
+~/bin/haskell/hasktags 
+exec ~/bin/haskell/hasktags 
+sh -c  ~/bin/haskell/hasktags 
+bin/haskell/hasktags 
+head bin/haskell/hasktags 
+bin/haskell/hasktags 
+ls
+cd bin/haskell/
+cp hasktags ../../
+cd
+haskell-compiler 
+./hasktags 
+RM hasktags 
+rm hasktags 
+cd temp/hasktags-0.68/
+ls
+ghc hasktags.hs 
+ghc -c -O hasktags.hs 
+ghc --make hasktags.hs 
+ghc -c hasktags.hs 
+ghc hasktags.hs 
+ghc --make hasktags.hs 
+ghc 
+ghc hasktags.hs 
+ghc --make Setup.hs  
+ghc Setup.hs  
+ls
+cat Setup.hs 
+ls
+ghc --make Setup.hs  
+ghc --make hasktags.hs 
+ghc -c hasktags.hs 
+ghc -c -O hasktags.hs 
+ls
+cd
+cabal install hasktags
+ls .cabal/bin/
+.cabal/bin/hasktags 
+rm -rf bin/
+ls
+.cabal/bin/hasktags --ignore-close-implementation --etags /home/kv/haskell/ttt/xstream/lexer_try0.hs
+ls
+mv TAGS haskell/ttt/xstream/
+openssl --help
+find /home/kv/svn 
+find /home/kv/svn -type f
+find /home/kv/svn -type f | sed '#^/home/kv/svn#/home/kv/svn_bk#' | head
+find /home/kv/svn -type f | sed -e 's#^/home/kv/svn#/home/kv/svn_bk#' | head
+find /home/kv/svn -type f | awk '{str_mod = gensub(/^\\/home\\/kv\\/svn/, "/home/kv/svn_bk"); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = gensub(#^\\/home\\/kv\\/svn#, "/home/kv/svn_bk"); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = gensub(/^\\/home\\/kv\\/svn/, "/home/kv/svn_bk"); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = gensub(/^\\/home\\/kv\\/svn/, "/home/kv/svn_bk", 1); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = gensub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", 1); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); print $0, str_mod}' | head
+find /home/kv/svn -type f | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("openssl aes-256-cbc -a -salt -in %s -out %s\n", $0, str_mod)}' | head
+mkdir /home/kv/svn_bk
+openssl aes-256-cbc -a -salt -in /home/kv/svn/xstream/hooks/post-unlock.tmpl -out /home/kv/svn_bk/xstream/hooks/post-unlock.tmpl
+mkdir --help
+/bin/mkdir --help
+find /home/kv/svn -type d 
+/bin/mkdir --help
+find /home/kv/svn -type d | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("mkdir -p %s\n", str_mod)}' | head
+find /home/kv/svn -type d | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("mkdir -p %s\n", str_mod)}' | head | xargs -pt -i{} sh -c {}
+ls svn_bk/
+find /home/kv/svn -type d | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("mkdir -p %s\n", str_mod)}' | head | xargs -i{} sh -c ""\{\}""
+find /home/kv/svn -type d | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("mkdir -p %s\n", str_mod)}' | head | xargs -i{} sh -c {}
+ls svn_bk/
+find /home/kv/svn -type d | awk '{str_mod = $0; sub(/^\/home\/kv\/svn/, "/home/kv/svn_bk", str_mod); printf("mkdir -p %s\n", str_mod)}' | head 
+ls -R svn_bk/
+rm -rf svn_bk/
+openssl --help
+ls
+mkdir tmp
+rsync -avz --recursive --list-only haskell/ttt/ ~/tmp/
+ls tmp/
+rsync -avz --recursive haskell/ttt/ ~/tmp/
+ls tmp/
+rsync -avz --recursive --list-only haskell/ttt/ ~/tmp/
+rsync -avz --list-only haskell/ttt/ ~/tmp/
+rsync -avz --recursive haskell/ttt/ ~/tmp/
+mkdir svn_sync
+rm -rf tmp/
+ls
+rsync -avz --recursive ~/svn/ ~/svn_sync/ > qq
+echo $shell
+echo $SHELL
+cat qq | xargs -i{} sh -c "if [ -f "\{\}" ]; then echo "\{\}""
+cat qq | xargs -pt -i{} sh -c "if [ -f "\{\}" ]; then echo "\{\}""
+cat qq | xargs -p -i{} sh -c "if [ -f "\{\}" ]; then echo "\{\}""
+cat qq | xargs -t -i{} sh -c "if [ -f "\{\}" ]; then echo "\{\}""
+cat qq | xargs -t -i{} sh -c "if [ -f "{}" ]; then echo "{}""
+cat qq | xargs -t -i{} sh -c "if [ -f "\"{}\"" ]; then echo "\"{}\"""
+cat qq | xargs -t -i{} sh -c "if [ -f "\"{}\"" ]; then echo "\"{}\""; fi"
+cat qq | xargs -i{} sh -c "if [ -f "\"{}\"" ]; then echo "\"{}\""; fi"
+head qq
+cat qq | xargs -i{} sh -c "if [ -f "\"/home/kv/svn_bk/{}\"" ]; then echo "\"{}\""; fi"
+cat qq | xargs -pt -i{} sh -c "if [ -f "\"/home/kv/svn_bk/{}\"" ]; then echo "\"{}\""; fi"
+cat qq | xargs -t -i{} sh -c "if [ -f "\"/home/kv/svn_bk/{}\"" ]; then echo "\"{}\""; fi"
+ls /home/kv/svn_bk/xstream/locks/db.lock
+cat qq | xargs -t -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then echo "\"{}\""; fi"
+cat qq | xargs -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then echo "\"{}\""; fi"
+cat qq | xargs -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then echo "\"{}\""; fi"
+rsync -avz --recursive /home/kv/svn/ /home/kv/svn_sync/ | xargs -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then echo "\"{}\""; fi"
+echo "SSSS" > svn_sync/xstream/svn-commit.tmp.save 
+rsync -avz --recursive /home/kv/svn/ /home/kv/svn_sync/ | xargs -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then echo "\"{}\""; fi"
+cat > qq
+echo "SSS" > qq
+cat qq
+openssl aes-256-cbc -a -salt -in qq -out qq.enc -passwd www
+openssl aes-256-cbc -a -salt -in qq -out qq.enc -passwd www
+openssl aes-256-cbc -e -a -salt -in qq -out qq.enc -pass www
+openssl aes-256-cbc -e -a -salt -in qq -out qq.enc -pass pass:www
+ls qq*
+cat qq.enc 
+openssl aes-256-cbc -d -a -salt -in qq.enc  -pass pass:www
+cat qq.enc 
+chmod u+x ~/batch_decoder 
+./batch_decoder 
+which bash
+./batch_decoder 
+Lls /mnt/clnx_shared/My\ Dropbox/
+ls /mnt/clnx_shared/My\ Dropbox/
+find /home/kv/svn/ -type d
+find /home/kv/svn/ -type d | sed -e 's#/home/kv/svn#/mnt/clnx_shared/My\ Dropbox/svn_syncenc/#' 
+find /home/kv/svn/ -type d | sed -e 's#/home/kv/svn#/mnt/clnx_shared/My\\ Dropbox/svn_syncenc#' 
+find /home/kv/svn/ -type d | sed -e 's#/home/kv/svn#/mnt/clnx_shared/My\\ Dropbox/svn_syncenc#' | xargs -i {} echo mkdir -p {}
+find /home/kv/svn/ -type d | sed -e 's#/home/kv/svn#/mnt/clnx_shared/My\\ Dropbox/svn_syncenc#' | xargs -i{} echo mkdir -p {}
+echo "SSSS" > svn_sync/xstream/svn-commit.tmp.save 
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+ls -l /mnt/clnx_shared/
+ls -l /mnt/clnx_shared/My\ Dropbox/
+ls -l /mnt/clnx_shared/My\ Dropbox/svn_syncenc/
+ls -lR /mnt/clnx_shared/My\ Dropbox/svn_syncenc/
+rm -rf /mnt/clnx_shared/My\ Dropbox/svn_syncenc/syncypher/
+rm -rf /mnt/clnx_shared/My\ Dropbox/svn_syncenc/EMACS/
+rm -rf /mnt/clnx_shared/My\ Dropbox/svn_syncenc/xstream/
+./batch_decoder 
+ls /mnt/clnx_shared/My\ Dropbox/svn_syncenc/syncypher/db
+ls /mnt/clnx_shared/My\ Dropbox/svn_syncenc/syncypher
+ls -l /mnt/clnx_shared/My\ Dropbox/svn_syncenc/syncypher
+ls -l /mnt/clnx_shared/My\ Dropbox/svn_syncenc/
+ls -l /mnt/clnx_shared/My\ Dropbox/
+whoami 
+whoami ==help
+whoami --help
+whoami -h
+pwd
+ls -l
+ls -l /mnt/clnx_shared/My\ Dropbox/
+./batch_decoder 
+ls -l /mnt/clnx_shared/My\ Dropbox/
+ls -l /mnt/clnx_shared/My\ Dropbox/
+mkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/revprops': Permission deniedmkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/transactions': Permission denied
+mkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/revprops': Permission deniedmkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/transactions': Permission denied
+mkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/revprops': Permission deniedmkdir: cannot create directory `/mnt/clnx_shared/My Dropbox/svn_syncenc/EMACS/db/transactions': Permission denied
+ls -lR /mnt/clnx_shared/My\ Dropbox/
+su
+ls /mnt/clnx_shared/My\ Dropbox/svn_syncenc/
+ls -R /mnt/clnx_shared/My\ Dropbox/svn_syncenc/
+ls
+su
+./batch_decoder
+exit
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+ls -R svn_sync/
+ls -R svn_sync/
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+./batch_decoder 
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f | xargs ls -l
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "%h/%f\n" | xargs ls -l
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "\"%h/%f\"\n" | xargs ls -l
+date
+cat  /mnt/clnx_shared/My Dropbox/svn_syncenc/xstream/svn-commit.tmp.save
+cat  "/mnt/clnx_shared/My Dropbox/svn_syncenc/xstream/svn-commit.tmp.save"
+./batch_decoder 
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "\"%h/%f\"\n" | xargs ls -l | tale
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "\"%h/%f\"\n" | xargs ls -l | tail
+date
+./batch_decoder 
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "\"%h/%f\"\n" | xargs ls -l 
+cat  "/mnt/clnx_shared/My Dropbox/svn_syncenc/xstream/svn-commit.tmp.save"
+./batch_decoder 
+date
+find /mnt/clnx_shared/My\ Dropbox/svn_syncenc/ -type f -printf "\"%h/%f\"\n" | xargs ls -l 
+./batch_decoder 
+mv batch_decoder batch_encoder
+su
+chmod u+x batch_decoder 
+su
+history |grep svnadmin
+history |grep 'svn import'
+grep -R 'sqlToken' /mnt/clnx_shared/hssqlppp-0.2.0/
+grep -R 'sqlToken' /mnt/clnx_shared/hssqlppp-0.2.0/
+~/.cabal/bin/hasktags --help
+cd haskell/ttt/
+ls
+cd xstream/
+ls
+ls -l *
+find . -regexp '\.l?hs$'
+find . -regex '\.l?hs$'
+find . -regex '.+\.l?hs$'
+~/.cabal/bin/hasktags -e `find . -regex '.+\.l?hs$'
+ls -l TAGS 
+~/.cabal/bin/hasktags --ignore-close-implementation -e `find . -regex '.+\.l?hs$'
+~/.cabal/bin/hasktags --ignore-close-implementation -e `find . -regex '.+\.l?hs$'`
+~/.cabal/bin/hasktags --ignore-close-implementation -e `find . -regex ".+\.l?hs$"`
+ls 
+ls *hs
+~/.cabal/bin/hasktags --ignore-close-implementation -e `ls *hs`
+find . -regex '.+\.l?hs$' 
+rm TAGS 
+find . -regex '.+\.l?hs$' | xargs -i{} ~/.cabal/bin/hasktags -a --ignore-close-implementation -e {}
+ls -l TA
+ls -l TAGS
+ls
+find . -regex '.+\.l?hs$' | xargs -i{} ~/.cabal/bin/hasktags -a --ignore-close-implementation -e {}
+ls
+find . -regex '.+\.l?hs$' 
+find . -regex '.+\.l?hs$' -printf "%h/%f\n" 
+find . -regex '.+\.l?hs$' -printf "-- %h/%f\n" 
+find $cwd -regex '.+\.l?hs$' -printf "%h/%f\n" 
+echo $cwd
+pwd
+find ~/haskell/ttt/xstream -regex '.+\.l?hs$' -printf "%h/%f\n" 
+find ~/haskell/ttt/xstream -regex '.+\.l?hs$' -printf "%h/%f\n" | xargs -i{} ~/.cabal/bin/hasktags -a --ignore-close-implementation -e {}
+ls
+echo "SS" > qq
+ls
+rm qq
+~/.cabal/bin/hasktags --ignore-close-implementation -e `find ~/haskell/ttt/xstream -regex '.+\.l?hs$' -printf "%h/%f\n"`
+~/.cabal/bin/hasktags --ignore-close-implementation -e *.hs
+~/.cabal/bin/hasktags --ignore-close-implementation -e *.hs
+ls
+~/.cabal/bin/hasktags --ignore-close-implementation -e -a *.lhs
+ls
+cd ../..
+ls
+cd ttt/xstream/
+ls
+ls ..
+cd haskell/
+ls
+cd ttt/
+cd ..
+cd ttt/
+exit
+~/.cabal/bin/hasktags --help
+~/.cabal/bin/hasktags -e `ls -R /mnt/clnx_shared/hssqlppp-0.2.0/*`
+ls -R /mnt/clnx_shared/hssqlppp-0.2.0/*
+grep -R 'StatementList' /mnt/clnx_shared/hssqlppp-0.2.0/*
+grep -wR 'StatementList' /mnt/clnx_shared/hssqlppp-0.2.0/*
+grep -wR 'Statement' /mnt/clnx_shared/hssqlppp-0.2.0/*
+grep -wR 'Annotation' /mnt/clnx_shared/hssqlppp-0.2.0/*
+who
+w
+finger 
+cabal install uuagc
+cabal install array
+cabal install array --reinstall
+cabal install uuagc
+cabal install containers
+cabal install containers --reinstal
+cabal install uuagc
+which uuagc
+ls ~/.cabal
+ls -R ~/.cabal
+find /.cabal -type f
+find ~/.cabal -type f
+find ~/.cabal -type f -regex '.*\.tar\.gz$'
+find ~/.cabal -type f -regex '.*\.tar\.gz$' | xargs -P 20 -n 1 -i rm {}
+find ~/.cabal -type f -regex '.*\.tar\.gz$'
+cd ../
+cd ..
+uuagc -dcf Tut.ag 
+cd haskell/
+ls
+grep -wR 'Annotation' /mnt/clnx_shared/hssqlppp-0.2.0/*
+grep -wR 'Annotation' /mnt/clnx_shared/hssqlppp-0.2.0/*
+cd working_version/xstream/TypeChecking/
+ls
+find . -regex '.*\.ag$'
+find . -regex '.*\.ag$' -printf "%h/%f\n"
+find cwd -regex '.*\.ag$' -printf "%h/%f\n"
+find $cwd -regex '.*\.ag$' -printf "%h/%f\n"
+find -regex '.*\.ag$' -printf "%h/%f\n" | xargs -P 10 -n1 -i{} uuagc  -dcfwsp --cycle --genlinepragmas {}
+ls
+cd ..
+ls
+rm -rf TypeChecking
+ls
+ls -R AstInternals/
+cd AstInternals/
+ls
+uuagc  -dcfwsp --cycle --genlinepragmas AstInternal.ag 
+ls
+ls -l]
+ls -l
+ls
+grep 'SelectStatement' /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Ast/*
+grep 'SelectStatement' /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/
+grep 'SelectStatement' /mnt/clnx_shared/hssqlppp-0.2.0/Database/
+grep "Select" /mnt/clnx_shared/hssqlppp-0.2.0/Database/
+grep "Select" /mnt/clnx_shared/hssqlppp-0.2.0/Database/*
+grep -i "Select" /mnt/clnx_shared/hssqlppp-0.2.0/Database/*
+grep -i "a" /mnt/clnx_shared/hssqlppp-0.2.0/Database/*
+grep 'SelectStatement' /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Ast/
+grep 'SelectStatement' /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Ast/*hs
+ls
+pushd $cwd
+popd
+echo $cwd
+pwd
+pushd ~/haskell/working_version/xstream/AstInternals
+cd /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Ast/
+grep 'SelectStatement' *
+grep 'a' *
+popd
+ls
+pwd
+ls ..
+sed
+ls ..
+ls
+cd ../Ast
+ls
+head Annotation.lhs 
+ls
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs | head -30 | tail
+ls ..
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs | head
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs | head -30
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs | head -40
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs 
+sed -e 's#Database\.HsSqlPpp\.##g' Annotation.lhs 
+sed -ie 's#Database\.HsSqlPpp\.##g' Annotation.lhs 
+head Annotation.lhs 
+cd ..
+pushd ~/haskell/working_version/xstream
+pwd
+grep -R 'StatementList' /mnt/clnx_shared/hssqlppp-0.2.0/
+grep -wR 'StatementList' /mnt/clnx_shared/hssqlppp-0.2.0/
+grep -wR 'Statement' /mnt/clnx_shared/hssqlppp-0.2.0/
+grep -wR 'Annotation' /mnt/clnx_shared/hssqlppp-0.2.0/
+ls
+ls Ast
+diff Ast/Annotation.lhs Ast/Annotation.lhse 
+sed -Rie 's#Database\.HsSqlPpp\.##g' * 
+find -type f
+find . -type f -not regex '.*svn.*'
+find . -type f -not -regex '.*svn.*'
+find . -type f -not -regex '.*svn.*' -regex '.*Ast.*'
+find . -type f -not -regex '.*svn.*' -regex '.*Ast.*' | xargs -P 10 -n 1 -i{} sed -ie 's#Database\.HsSqlPpp\.##g' {}
+find /mnt/clnx_shared/ -iregex '.*utils.*'
+cp /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Utils.lhs .
+cp /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Dbms/DBAccess.lhs .
+find . -type f -not -regex '.*svn.*' -regex '.*Ast.*' | xargs -P 10 -n 1 -i{} sed -ie 's#Database\.HsSqlPpp\.Dbms##g' {}
+find . -type f -not -regex '.*svn.*' -regex '.*Ast.*' | xargs -P 10 -n 1 -i{} sed -ie 's#Dbms.DBAccess#DBAccess#g' {}
+cabal install hdbc
+pwd
+ls ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC
+ls ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/
+ls ~/.cabal/lib/parsec-3.0.1/ghc-6.12.1/Tex
+ls ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/
+exit
+ls ~/.cabal/lib/
+ls ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC
+ls ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.hi 
+ls -l ~/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.hi 
+cabal update
+ls /usr/lib/ghc-6.12.1/
+ls /usr/lib/ghc-6.12.1/lib
+ls -R /usr/lib/ghc-6.12.1/lib
+ls -R /usr/lib/ghc-6.12.1/
+find /usr/lib/ghc-6.12.1/ -regex '.*HDBC.*'
+find / -regex '.*HDBC.*'
+cabal --help
+cd ../..
+popd
+ls
+ghc imprt_check.hs 
+ghc -v imprt_check.hs 
+cabal install hdbc --reinstall
+ls  /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1
+ls  /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database
+cabal install containers
+cabal install convertible
+pwd
+cd working_version/xstream/
+ls
+ghc parser_try0.hs 
+ghc -XRankNTypes parser_try0.hs 
+ghc -v -XRankNTypes parser_try0.hs 
+:quit
+exit
+cd ~/haskell/working_version/xstream/
+cd ../..
+ghci -v imprt_check.hs 
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ imprt_check.hs 
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+ls /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.h*
+ls /home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/Text/Parsec/Language.h*
+cp /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.hi /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.hs
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+rm /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/HDBC.hs
+ls
+ghci -i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/ -v imprt_check.hs 
+ls /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/
+ls -R /home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/Database/
+cabak install hdbc 
+cabal install hdbc 
+cabal install hdbc --reinstall
+cabal install --help
+cabal install hdbc-postgresql
+cabal --version
+pwd
+cd working_version/
+cd xstream/
+ls
+grep -R 'import CatalogReader' *
+grep -R 'CatalogReader' *
+grep -R 'CatalogReader' *
+grep -R 'Ast.Catalog' *
+grep -R 'CatalogReader' *
+ls ..
+cp /mnt/clnx_shared/hssqlppp-0.2.0/Database/HsSqlPpp/Parsing/ParseErrors.lhs ./
+ls
+find . 
+find . -type f
+~/.cabal/bin/hasktags -e `find . -type f`
+~/.cabal/bin/hasktags -e `find . --type f`
+~/.cabal/bin/hasktags -e 'find . --type f'
+head `find . --type f`
+ls /home/kv/haskell/working_version/hssqlppp/Database/HsSqlPpp/AstInternals/Catalog/DefaultTemplate1Catalog.o
+ls /home/kv/haskell/working_version/hssqlppp/Database/HsSqlPpp/AstInternals/Catalog/
+ls /home/kv/haskell/working_version/hssqlppp/Database/HsSqlPpp/AstInternals/Catalog/
+ls -l /home/kv/haskell/working_version/hssqlppp/Database/HsSqlPpp/AstInternals/Catalog/
+ls -l /home/kv/haskell/working_version/hssqlppp/Database/HsSqlPpp/AstInternals/Catalog/
+exit
+ls
+rm qq
+ls
+exit
+runghc haskell_server.lhs 
+cabal install numbers
+runghc haskell_server.lhs 
+runghc -v haskell_server.lhs 
+pwd
+runghc -v haskell_server.lhs 
+exit
+cd w/mq_client/
+ls
+cd stream_client/
+ls
+./rabbit_publisher.py "sss"
+chmod a+x ./rabbit_publisher.py
+./rabbit_publisher.py "sss"
+mv client.h client.hpp
+mv client.c client.cpp
+mv client.cpp client.c
+mv client.hpp localhost_stream_manager.hpp
+ls
+cat Makefile 
+g++ -c -O2 -Wall circular_buffer_wrap.cpp
+g++ -c -O2 -Wall circular_buffer_wrap.cpp
+g++ -c -O2 -Wall circular_buffer_wrap.cpp
+g++ -c -O2 -Wall circular_buffer_wrap.cpp
+ls -l
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+ls -l cbw
+./cbw
+chmod u+x ./cbw
+./cbw
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+ls -l cbw
+gcc --version
+ls
+mv shared_memory.cpp shared_memory_server.cpp 
+ls
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+rm circular_buffer_wrap.hpp 
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+g++ -c -O2 -Wall circular_buffer_wrap.cpp -o cbw
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+ls shared_memory_server.cpp 
+CAT shared_memory_server.cpp 
+cat shared_memory_server.cpp 
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+pwd
+grep boost shared_memory_*
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+g++ -c -O2 -Wall shared_memory_server.cpp -o cbw
+exit
+ls
+g++ -c -O2 -Wall shared_memory_controller.cpp  -o cbw
+realpath shared_memory_controller.cpp 
+/home/kv/w/mq_client/stream_client/shared_memory_controller.cpp
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+g++ -DNDEBUG -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+pwd
+g++ -ggdb -DNDEBUG -c -O2 -Wall  /home/kv/w/mq_client/stream_client/shared_memory_controller.cpp -o cbw
+ls -k cbw
+ls -l cbw
+du -h cbw
+pwd
+ls shared_memory_controller.cpp
+ls -l rabbit_client.o message_list.o
+ls -l rabbit_client.o message_list.o
+grep 'circular_buffer_wrap\.cpp' *

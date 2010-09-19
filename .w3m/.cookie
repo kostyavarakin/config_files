@@ -1,0 +1,9 @@
+;;; .cookie  -*- mode: emacs-lisp; coding: iso-2022-7bit -*-
+;; This file is generated automatically by emacs-w3m v1.4.4.
+
+(["http://www.google.com/" ".google.com" nil "NID" "32=nToJVr3FZ55GZLrvCPP0r9iMEsLaYT23j_3SCzIAc_m7OoNmrIhTylUc3wExMZPL9Q78Nqak_27krzbfQbZfAvOcVDEkFXsMbSnbObfqR6et9YCG1p-TEBp2EzeuemDx" "/" 0 "Tue, 31-Aug-2010 04:13:22 GMT" nil]
+["http://www.google.co.il/" ".google.co.il" nil "PREF" "ID=ab5fb4cdd352fa00:TM=1267416802:LM=1267416802:S=KhX27yiACFkD43p_" "/" 0 "Wed, 29-Feb-2012 04:13:22 GMT" nil]
+["http://www.google.co.il/" ".google.co.il" nil "NID" "32=dDPBi5QmopJzxxiX3Ws4U9zYe4OfpfhmNT4LEGI1V__C1NOxbMqtijpiHqo4n6qUvRwc493VFhm_aoxxeDdridhrQ5ld-PuGm-WtPSWodb3KjvDJboB0TVWYqOMiSSGS" "/" 0 "Tue, 31-Aug-2010 04:13:22 GMT" nil]
+["http://www.google.co.il/" ".google.co.il" nil "HttpOnly" nil "/" 0 "Tue, 31-Aug-2010 04:13:22 GMT" nil]
+["http://www.google.com/ncr" ".google.com" nil "PREF" "ID=b984b26023b2acc3:U=037d5c148ace2712:LD=en:CR=2:TM=1267416802:LM=1267416820:S=ICLvWUabk1NLB8zP" "/" 0 "Wed, 29-Feb-2012 04:13:40 GMT" nil]
+["http://osdir.com/ml/beginners@haskell.org/2010-02/msg00026.html" "osdir.com" nil "recentVisit" "%2Fbeginners%40haskell.org%2F2010-02%2Fmsg00026.html" "/" 0 "Mon, 01-Mar-2010 04:21:45 GMT" nil])
