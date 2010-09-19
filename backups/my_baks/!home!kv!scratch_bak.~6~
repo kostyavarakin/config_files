@@ -1,0 +1,2 @@
+
+gcc -g -O2 -Wall client.c /home/kv/w/mq_client/rabbitmq-c/librabbitmq/.libs/librabbitmq.a

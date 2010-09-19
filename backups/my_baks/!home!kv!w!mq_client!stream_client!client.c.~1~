@@ -1,0 +1,15 @@
+
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+
+#include <stdint.h>
+#include <amqp.h>
+#include <amqp_framing.h>
+
+#include <unistd.h>
+#include <assert.h>
+
+#include "example_utils.h"

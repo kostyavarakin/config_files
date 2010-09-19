@@ -1,0 +1,36 @@
+
+# First of all, I really don't like C-a to be my key combination, since
+# I use it a lot to get the same effect as the `Home' key. So, I choose
+# C-\ as my preferred shortcut key by adding this line to my ~/.screenrc.
+
+escape \034\034
+
+# (If you are wondering, \034 is the key sequence C-\ in octal. Please
+# read the documentation for `escape' in the screen man page to find out
+# how I arrived at that).
+
+# Prefer an audible bell to the visual one.
+vbell off
+
+# Skip the startup message
+startup_message off
+# default shell
+shell -bash
+
+hardstatus on
+
+backtick 1 5 4 sh -c "cat /proc/meminfo | grep 'MemFree\|MemTotal\|SwapFree\|SwapTotal' | xargs -n12 | awk '{printf("\""Mem:%d/%d|Swp%d/%d\n"\"","\$5"/1024, "\$2"/1024)}'"
+hardstatus alwayslastline
+hardstatus string '%{gk}[%H][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f%t%?(%u)%?%{=bkR})%{=kw}%?%+Lw%?%?%=%{g}][%l][%m/%d %c][%1`]'
+
+
+# caption     always        "%{gk}[%H][%l][%m/%d %c][%1`]"
+# hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+
+ #terminfo and termcap for nice 256 color terminal
+ # allow bold colors - necessary for some reason
+ #attrcolor b ".I"
+ #termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+ #defbce "on"
+term screen-256color
+

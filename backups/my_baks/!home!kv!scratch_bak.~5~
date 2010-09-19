@@ -1,0 +1,44 @@
+:set -XDeriveDataTypeable -XRankNTypes
+:cd /home/kv/haskell/working_version/xstream/
+:load parser_try0.hs
+
+/usr/bin/ghc --make /tmp/HDBC-postgresql-2.2.3.17151/HDBC-postgresql-2.2.3.1/Setup.hs -o /tmp/HDBC-postgresql-2.2.3.17151/HDBC-postgresql-2.2.3.1/dist/setup/setup -odir /tmp/HDBC-postgresql-2.2.3.17151/HDBC-postgresql-2.2.3.1/dist/setup -hidir /tmp/HDBC-postgresql-2.2.3.17151/HDBC-postgresql-2.2.3.1/dist/setup -i -i/tmp/HDBC-postgresql-2.2.3.17151/HDBC-postgresql-2.2.3.1 -package Cabal-1.8.0.2
+
+
+
+HDBC-postgresql-2.2.3.1 failed during the configure step. The exception was:
+ExitFailure 9
+HUnit-1.2.2.1 failed during the configure step. The exception was:
+ExitFailure 1
+haskell-src-exts-1.8.2 failed during the configure step. The exception was:
+ExitFailure 9
+hssqlppp-0.2.0 depends on regex-base-0.93.1 which failed to install.
+regex-base-0.93.1 failed during the configure step. The exception was:
+ExitFailure 1
+regex-posix-0.94.1 depends on regex-base-0.93.1 which failed to install.
+test-framework-0.2.4 depends on regex-base-0.93.1 which failed to install.
+test-framework-hunit-0.2.4 depends on regex-base-0.93.1 which failed to
+install.
+
+
+
+HUnit-1.2.2.1 (new package)
+Pipe-2.1.2 (new package)
+ansi-terminal-0.5.0 (new package)
+ansi-wl-pprint-0.5.1 (new package)
+cpphs-1.11 (new package)
+haskell-lexer-1.0 (new package)
+haskell-src-exts-1.8.2 (new package)
+mtl-1.1.0.2 (new package)
+cmdargs-0.1 (new package)
+convertible-1.0.9 (new package)
+HDBC-2.2.3 (new package)
+parsec-3.1.0 (new package)
+HDBC-postgresql-2.2.3.1 (new package)
+pretty-show-1.1 (new package)
+regex-base-0.93.1 (new package)
+regex-posix-0.94.1 (new package)
+test-framework-0.2.4 (new package)
+test-framework-hunit-0.2.4 (new package)
+uniplate-1.5.1 (new package)
+hssqlppp-0.2.0 (new package)

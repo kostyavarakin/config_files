@@ -1,0 +1,1 @@
+gcc -g -O2 -Wall -DHAVE_CONFIG_H  -I../rabbitmq-c/examples  -I../rabbitmq-c -I../rabbitmq-c/librabbitmq

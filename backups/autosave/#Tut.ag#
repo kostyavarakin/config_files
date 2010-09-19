@@ -1,0 +1,15 @@
+DATA Tree
+   | Node  left:  Tree   right: Tree
+   | Tip   value: Int
+
+ATTR Tree [
+          |
+          | sum: Int
+          ]
+
+SEM Tree
+  | Node  lhs.sum  =  @left.sum + @right.sum
+  | Tip   lhs.sum  =  @value
+
+{
+main :: IO ()

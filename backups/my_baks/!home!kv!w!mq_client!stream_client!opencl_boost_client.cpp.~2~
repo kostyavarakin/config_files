@@ -1,0 +1,29 @@
+//#include <boost/interprocess/shared_memory_object.hpp>
+//#include <boost/interprocess/mapped_region.hpp>
+
+#include <boost/interprocess/managed_shared_memory.hpp>
+#include <boost/interprocess/allocators/allocator.hpp>
+
+#include "circular_buffer_wrap.cpp"
+
+int main ()
+{
+  using namespace boost::interprocess;
+  try {
+    typedef allocator<int, managed_shared_memory::segment_manager> ShmemAllocator; // TODO int to template
+    typedef boost::circular_buffer_space_optimized<int, ShmemAllocator> MyBuffer; // TODO int to template
+    //Open already created shared memory object.
+    managed_shared_memory segment (open_only, "OpenCL_shared_memory"); 
+
+    MyBuffer *mybuffer = segment.find<MyBuffer>("rabbit_stream").first;
+
+//     MyBuffer::value_type *data_for_gpu;
+//     while (1) {
+//       mybuffer->pop_back(data_for_gpu);
+//     }
+  }
+  catch(...){
+    shared_memory_object::remove("OpenCL_shared_memory");
+    throw;
+  }
+}

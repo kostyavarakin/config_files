@@ -1,0 +1,15 @@
+
+
+
+
+module queryParser (
+            -- * Main
+             parseStreamQuery
+            )
+   where
+
+import Text.Parsec hiding(many, optional, (<|>), string)
+import Text.Parsec.Expr
+import Text.Parsec.String
+import Text.Parsec.Perm
+

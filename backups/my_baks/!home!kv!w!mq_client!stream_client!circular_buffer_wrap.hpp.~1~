@@ -1,0 +1,3 @@
+
+#include <boost/circular_buffer.hpp>
+#define INITIAL_CAPACITY 100

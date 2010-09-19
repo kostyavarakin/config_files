@@ -1,0 +1,22 @@
+
+module Main where
+import Parsec
+import qualified ParsecToken as P
+import ParsecLanguage( haskellStyle )
+
+lexer :: TokenParser ()
+lexer  = makeTokenParser 
+         (haskellDef
+                   { reservedOpNames = ["*","/","+","-"]
+                                                }
+                   For efficiency, we will bind all the used lexical parsers at toplevel.
+                                   
+                                   whiteSpace= P.whiteSpace lexer
+                                               lexeme    = P.lexeme lexer
+                                                           symbol    = P.symbol lexer
+                                                                       natural   = P.natural lexer
+                                                                                   parens    = P.parens lexer
+                                                                                               semi      = P.semi lexer
+                                                                                                           identifier= P.identifier lexer
+                                                                                                                       reserved  = P.reserved lexer
+                                                                                                                                   reservedOp= P.reservedOp lexer

@@ -1,0 +1,11 @@
+<big>'''Stream processing on GPGPU hardware'''</big>
+
+Who we are: <br>
+<div>GPUSTREAM is a open-source startup with a purpose of creating ultrafast
+  middleware platform&nbsp;</div>
+  <div>for stream processing&nbsp;</div>
+We strive to provide the solution for the following market sectors:<br>
+  <ul><li>financial community (e.g. to reduce latency in algorithmic trading
+  during data analysis stage)</li>
+  <li>wireless sensor networks (e.g. seamlessly analyzing the data streamed from
+  thousands of sensors)</li>

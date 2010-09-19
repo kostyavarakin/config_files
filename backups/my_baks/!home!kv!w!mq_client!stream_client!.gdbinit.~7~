@@ -1,0 +1,11 @@
+echo Reading /home/kv/w/mq_client/stream_client/.gdbinit\n
+
+# set args localhost 5672 amq.direct test
+
+#set args ""
+
+set environment LD_LIBRARY_PATH /usr/local/lib/
+directory /home/kv/w/mq_client/stream_client/
+#break localhost_stream_manager.cpp:9
+break "/home/kv/w/mq_client/stream_client/shared_memory_controller.cpp:10"
+run

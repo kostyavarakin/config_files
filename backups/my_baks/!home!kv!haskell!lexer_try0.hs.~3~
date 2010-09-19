@@ -1,0 +1,89 @@
+
+module Query.Lexer where
+
+import Text.Parsec
+import qualified Text.Parsec.Token as PT
+import Text.Parsec.Language ( emptyDef )
+
+
+-- import Control.Applicative
+-- import Control.Monad.Identity
+
+-- import Text.Parsec.String
+-- import Text.Parsec.Pos
+-- import Text.Parsec.Expr
+-- import Text.Parsec.Perm
+
+lexer :: PT.TokenParser st
+lexer  = PT.makeTokenParser  (emptyDef {
+                             PT.commentStart = "/*"
+                            ,PT.commentEnd = "*/"
+                            ,PT.commentLine = "--"
+                            ,PT.nestedComments = False
+                            ,PT.identStart = letter <|> char '_'
+                            ,PT.identLetter    = alphaNum <|> oneOf "_"
+                            ,PT.opStart        = PT.opLetter emptyDef
+                            ,PT.opLetter       = oneOf ".:^*/%+-<>=|!"
+                            ,PT.reservedOpNames= []
+                            ,PT.reservedNames  = []
+                            ,PT.caseSensitive  = False
+                            })
+
+-- For efficiency, we bind all the used lexical parsers at toplevel.
+whiteSpace = PT.whiteSpace lexer
+lexeme     = PT.lexeme lexer
+symbol     = PT.symbol lexer
+natural    = PT.natural lexer
+parens     = PT.parens lexer
+semi       = PT.semi lexer
+identifier = PT.identifier lexer
+reserved   = PT.reserved lexer
+reservedOp = PT.reservedOp lexer
+
+
+-- data types
+
+type Token = (SourcePos, Tok)
+data Tok = QueryString String String  -- delim, value (delim will one of ', $$, $[stuff]$
+         | QueryIdString String       -- includes . and x.y.* type stuff
+         | QuerySymbol String         -- operators, and ()[],;:* is currently always lexed as an id
+           --   rather than an operator this gets fixed in the parsing stage
+         | QueryPositionalTok Integer -- used for $1, etc.
+         | QueryFloatTok Double
+         | QueryIntegerTok Integer
+         deriving (Eq,Show)
+
+Lexer for an individual token.
+
+What we could do is lex lazily and when the lexer reads a copy from
+stdin statement, it switches lexers to lex the inline table data, then
+switches back. Don't know how to do this in parsec, or even if it is
+possible, so as a work around, we use the state to trap if we've just
+seen 'from stdin;', if so, we read the copy payload as one big token,
+otherwise we read a normal token.
+
+> sqlToken :: ParsecT String LexState Identity Token
+> sqlToken = do
+>            sp <- getPosition
+>            sta <- getState
+>            t <- if sta == [ft,st,mt]
+>                 then copyPayload
+>                 else try sqlString
+>                  <|> try idString
+>                  <|> try positionalArg
+>                  <|> try sqlSymbol
+>                  <|> try sqlFloat
+>                  <|> try sqlInteger
+>            updateState $ \stt ->
+>              case () of
+>                      _ | stt == [] && t == ft -> [ft]
+>                        | stt == [ft] && t == st -> [ft,st]
+>                        | stt == [ft,st] && t == mt -> [ft,st,mt]
+>                        | otherwise -> []
+
+>            return (sp,t)
+>            where
+>              ft = IdStringTok "from"
+>              st = IdStringTok "stdin"
+>              mt = SymbolTok ";"
+

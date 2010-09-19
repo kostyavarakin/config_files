@@ -1,0 +1,17 @@
+myDiv3 :: Float -> Float ->
+          Either String Float
+myDiv3 x 0 = Left "Divison by zero"
+myDiv3 x y = Right (x / y)
+
+example3 x y =
+  case myDiv3 x y of
+    Left msg -> putStrLn msg
+    Right q  -> putStrLn (show q)
+Once again, we can treat Either String as a monad, allowing us to combine these computations with a minimum of fuss:
+
+divSum3 :: Float -> Float -> Float ->
+           Either String Float
+divSum3 x y z = do
+  xdy <- myDiv3 x y
+  xdz <- myDiv3 x z
+  return (xdy + xdz)

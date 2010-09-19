@@ -1,0 +1,28 @@
+
+module Main where
+
+import Text.ParserCombinators.Parsec
+
+> import Text.Parsec hiding(many, optional, (<|>), string)
+> import Text.Parsec.Expr
+> import Text.Parsec.String
+> import Text.Parsec.Perm
+> --import Text.Parsec.Error
+
+> import Control.Applicative
+> import Control.Monad.Identity
+
+> import Data.Maybe
+> import Data.Char
+
+> import Data.Generics.PlateData
+> import Data.Generics hiding (Prefix,Infix)
+
+> import str_lexer
+> import ParseErrors
+
+
+
+
+  
+  

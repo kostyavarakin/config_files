@@ -1,0 +1,1 @@
+ select * from DD where DD.l < 16;

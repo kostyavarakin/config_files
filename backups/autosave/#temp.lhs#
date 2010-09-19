@@ -1,0 +1,56 @@
+> {-# LANGUAGE DeriveDataTypeable, ScopedTypeVariables,FlexibleContexts #-}
+
+> import System.Console.CmdArgs
+> import System.IO
+> import System.Directory
+> import Control.Monad.Error
+
+> import Text.Show.Pretty
+> import Test.Framework (defaultMainWithArgs)
+
+> import Data.List
+
+> -- import Database.HsSqlPpp.Tests.ParserTests
+> -- import Database.HsSqlPpp.Tests.TypeCheckTests
+> -- import Database.HsSqlPpp.Tests.ExtensionTests
+> -- import Database.HsSqlPpp.Tests.ParameterizedStatementTests
+> -- import Database.HsSqlPpp.Tests.RoundtripTests
+> -- import Database.HsSqlPpp.Tests.LocalBindingsTests
+
+> -- import Database.HsSqlPpp.Utils
+
+> import Database.HsSqlPpp.Ast.Ast
+> import Database.HsSqlPpp.Ast.Catalog
+> import qualified Database.HsSqlPpp.Ast.TypeChecker as A
+> import Database.HsSqlPpp.Ast.Annotation
+> import Database.HsSqlPpp.Ast.SqlTypes
+
+> import qualified Database.HsSqlPpp.Parsing.Parser as P
+> import Database.HsSqlPpp.Parsing.Lexer
+
+
+> import Database.HsSqlPpp.PrettyPrinter.PrettyPrinter
+> import Database.HsSqlPpp.PrettyPrinter.AnnotateSource
+
+> import Database.HsSqlPpp.Dbms.DatabaseLoader
+> import Database.HsSqlPpp.Dbms.WrapperGen
+> import Database.HsSqlPpp.Dbms.DBUtils
+
+> import Database.HsSqlPpp.Extensions.ChaosExtensions
+
+===============================================================================
+
+> showAst :: [String] -> IO ()
+> showAst = wrapET . mapM_ (\f ->
+>                (liftIO . putStrLn) ("-- ast of " ++ f) >>
+>                readInput f >>= tsl . P.parseSql f >>=
+>                return . stripAnnotations >>= return . ppShow >>= liftIO . putStrLn)
+
+run in errort monad, throw error as io error
+
+> wrapET :: (Show e, Monad m) => ErrorT e m a -> m a
+> wrapET c = runErrorT c >>= \x ->
+>          case x of
+>            Left er -> error $ show er
+>            Right l -> return l
+

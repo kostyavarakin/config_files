@@ -1,0 +1,9 @@
+echo "Reading /home/kv/w/mq_client/stream_client/.gdbinit\n"
+
+set args localhost 5672 amq.direct test
+
+set environment LD_LIBRARY_PATH /usr/local/lib/
+
+break 21
+
+run

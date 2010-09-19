@@ -1,0 +1,1 @@
+select ddd.w as w, eee.r as r from DD as ddd,EE as eee where ddd.key < 16e-3 and eee.key > 2.34;

@@ -1,0 +1,50 @@
+
+#include "message_list.hpp"
+
+template <typename T> message_list<T>::message_list() { 
+  using namespace boost::interprocess;
+  try {
+    shared_memory_object::remove("rabbit_stream_try");
+    managed_shared_memory segment (create_only, "rabbit_stream_try", 65536);
+    
+    typedef allocator<T, managed_shared_memory::segment_manager> ShmemAllocator;
+    const ShmemAllocator alloc_inst (segment.get_segment_manager());
+    
+    data_chunk = segment.construct<data_chunk_type>("rabbit_stream_try") (alloc_inst);
+  }
+  catch (...) {
+    shared_memory_object::remove("rabbit_stream_try");
+    throw;
+  }
+  data_chunk_length = 15;	
+  // TODO. Why 15? I do not know we should change it later. 
+  // It should be equal to one time upload memory request from GPU 
+}
+
+template <typename T> bool message_list<T>::push_back(T element) {
+  using namespace std;
+  try {
+    if (data_chunk->end()->size() < data_chunk_length) {
+      data_chunk->end()->push_back(element);
+    } else {	// vector is full, new list element should be created 
+      vector<T> holder;
+      holder[0] = element;
+      data_chunk->push_back(holder);
+    } 
+  }
+
+  catch (...) {
+    return false;
+    throw;
+  }
+  return true;
+}
+
+template <typename T> T message_list<T>::read_data() {
+  
+}
+
+template <typename T> message_list<T>::~message_list() {
+  using namespace boost::interprocess;
+  shared_memory_object::remove("rabbit_stream_try");
+}

@@ -1,0 +1,243 @@
+
+module Query>Lexer where
+
+import Text.Parsec hiding(many, optional, (<|>))
+import qualified Text.Parsec.Token as PT
+import Text.Parsec.Language
+import Text.Parsec.String
+import Text.Parsec.Pos
+import Text.Parsec.Expr
+import Text.Parsec.Perm
+
+import Control.Applicative
+import Control.Monad.Identity
+
+import Data.List
+import Data.Either
+import Control.Arrow
+import Control.Monad.Error
+import Control.Applicative
+
+lexer :: PT.TokenParser st
+lexer  = PT.makeTokenParser  (emptyDef {
+                             PT.commentStart = "/*"
+                            ,PT.commentEnd = "*/"
+                            ,PT.commentLine = "--"
+                            ,PT.nestedComments = False
+                            ,PT.identStart = letter <|> char '_'
+                            ,PT.identLetter    = alphaNum <|> oneOf "_"
+                            ,PT.opStart        = PT.opLetter emptyDef
+                            ,PT.opLetter       = oneOf ".:^*/%+-<>=|!"
+                            ,PT.reservedOpNames= []
+                            ,PT.reservedNames  = []
+                            ,PT.caseSensitive  = False
+                            })
+
+-- For efficiency, we bind all the used lexical parsers at toplevel.
+-- = parsec pass throughs = --
+
+symbol :: String -> ParsecT String LexState Identity String
+symbol = PT.symbol lexer
+
+integer :: ParsecT String LexState Identity Integer
+integer = lexeme $ PT.integer lexer
+
+float :: ParsecT String LexState Identity Double
+float = lexeme $ PT.float lexer
+
+whiteSpace :: ParsecT String LexState Identity ()
+whiteSpace= PT.whiteSpace lexer
+
+lexeme :: ParsecT String LexState Identity a
+          -> ParsecT String LexState Identity a
+lexeme = PT.lexeme lexer
+
+
+-- whiteSpace = PT.whiteSpace lexer
+-- lexeme     = PT.lexeme lexer
+-- symbol     = PT.symbol lexer
+-- natural    = PT.natural lexer
+-- parens     = PT.parens lexer
+-- semi       = PT.semi lexer
+-- identifier = PT.identifier lexer
+-- reserved   = PT.reserved lexer
+-- reservedOp = PT.reservedOp lexer
+-- integer    = 
+
+-- data types
+
+type Token = (SourcePos, Tok)
+data Tok = QueryString String String  -- delim, value (delim will one of ', $$, $[stuff]$
+         | QueryIdString String       -- includes . and x.y.* type stuff
+         | QuerySymbol String         -- operators, and ()[],;:* is currently always lexed as an id
+           --   rather than an operator this gets fixed in the parsing stage
+         | QueryPositionalTok Integer -- used for $1, etc.
+         | QueryFloatTok Double
+         | QueryIntegerTok Integer
+         | CopyPayloadTok String -- support copy from stdin; with inline data
+         deriving (Eq,Show)
+
+-- Lexer for an individual token.
+
+-- What we could do is lex lazily and when the lexer reads a copy from
+-- stdin statement, it switches lexers to lex the inline table data, then
+-- switches back. Don't know how to do this in parsec, or even if it is
+-- possible, so as a work around, we use the state to trap if we've just
+-- seen 'from stdin;', if so, we read the copy payload as one big token,
+-- otherwise we read a normal token.
+
+type MySourcePos = (String,Int,Int)
+type ParseState = [MySourcePos]
+type LexState = [Tok]
+
+-- include dots, * in all identifier strings during lexing. This parser
+-- is also used for keywords, so identifiers and keywords aren't
+-- distinguished until during proper parsing, and * and qualifiers aren't
+-- really examined until type checking
+
+identifierString :: ParsecT String LexState Identity String
+identifierString = lexeme $ choice [
+                    "*" <$ symbol "*"
+                   ,do
+                     a <- nonStarPart
+                     b <- tryMaybeP ((++) <$> symbol "." <*> identifierString)
+                     case b of Nothing -> return a
+                               Just c -> return $ a ++ c]
+  where
+    nonStarPart = idpart <|> (char '"' *> many (noneOf "\"") <* char '"')
+                  where idpart = (letter <|> char '_') <:> secondOnwards
+    secondOnwards = many (alphaNum <|> char '_')
+
+(<:>) :: (Applicative f) =>
+         f a -> f [a] -> f [a]
+(<:>) a b = (:) <$> a <*> b
+
+-- parse the block of inline data for a copy from stdin, ends with \. on
+-- its own on a line
+
+tryMaybeP :: GenParser tok st a
+             -> ParsecT [tok] st Identity (Maybe a)
+tryMaybeP p = try (optionMaybe p) <|> return Nothing
+
+copyPayload :: ParsecT String LexState Identity Tok
+copyPayload = CopyPayloadTok <$> lexeme (getLinesTillMatches "\\.\n")
+  where
+    getLinesTillMatches s = do
+                            x <- getALine
+                            if x == s
+                              then return ""
+                              else (x++) <$> getLinesTillMatches s
+    getALine = (++"\n") <$> manyTill anyChar (try newline)
+
+-- The most general way to run a parser over the Identity monad. runParser p state filePath input runs
+-- parser p on the input list of tokens input, obtained from source filePath with the initial user state st.
+-- The filePath is only used in error messages and may be the empty string.
+-- Returns either a ParseError (Left) or a value of type a (Right).
+
+--   parseFromFile p fname
+--     = do{ input <- readFile fname
+--         ; return (runParser p () fname input)
+--         }
+
+lexSqlText :: String -> String -> Either ParseError [Token]
+lexSqlText f s = runParser sqlTokens [] f s
+
+sqlTokens :: ParsecT String LexState Identity [Token]
+sqlTokens =
+  setState [] >>
+  whiteSpace >>
+  many sqlToken <* eof
+
+sqlToken :: ParsecT String LexState Identity Token
+sqlToken = do
+           sp <- getPosition
+           sta <- getState
+--           putStrLn <- getPosition
+           t <- if sta == [ft,st,mt]
+               then copyPayload
+               else try sqlString
+                    <|> try idString
+                    <|> try positionalArg
+                    <|> try sqlSymbol
+                    <|> try sqlFloat
+                    <|> try sqlInteger
+           updateState $ \stt ->
+             case () of
+                     _ | stt == [] && t == ft -> [ft]
+                       | stt == [ft] && t == st -> [ft,st]
+                       | stt == [ft,st] && t == mt -> [ft,st,mt]
+                       | otherwise -> []
+
+           return (sp,t)
+           where
+             ft = QueryIdString "from"
+             st = QueryIdString "stdin"
+             mt = QuerySymbol ";"
+
+sqlString :: ParsecT String LexState Identity Tok
+sqlString = stringQuotes <|> stringLD
+  where
+    --parse a string delimited by single quotes
+    stringQuotes = QueryString "\'" <$> stringPar
+    stringPar = optional (char 'E') *> char '\''
+                *> readQuoteEscape <* whiteSpace
+    -- (readquoteescape reads the trailing ')
+    -- have to read two consecutive single quotes as a quote character
+    -- instead of the end of the string, probably an easier way to do this
+    -- other escapes (e.g. \n \t) are left unprocessed
+
+    readQuoteEscape = do
+                      x <- anyChar
+                      if x == '\''
+                        then try ((x:) <$> (char '\'' *> readQuoteEscape))
+                             <|> return ""
+                        else (x:) <$> readQuoteEscape
+
+    -- parse a dollar quoted string
+
+    stringLD = do
+               -- cope with $$ as well as $[identifier]$
+               tag <- try (char '$' *> ((char '$' *> return "")
+                                   <|> (identifierString <* char '$')))
+               s <- lexeme $ manyTill anyChar
+                      (try $ char '$' <* string tag <* char '$')
+               return $ QueryString ("$" ++ tag ++ "$") s
+
+
+idString :: ParsecT String LexState Identity Tok
+idString = QueryIdString <$> identifierString
+
+
+positionalArg :: ParsecT String LexState Identity Tok
+positionalArg = char '$' >> QueryPositionalTok <$> integer
+
+-- == sql symbols for this lexer:
+
+-- sql symbol is one of
+-- ()[],; - single character
+-- +-*/<>=~!@#%^&|`? string - one or more of these, parsed until hit char
+-- which isn't one of these (including whitespace). This will parse some
+-- standard sql expressions wrongly at the moment, work around is to add
+-- whitespace e.g. i think 3*-4 is valid sql, should lex as '3' '*' '-'
+-- '4', but will currently lex as '3' '*-' '4'. This is planned to be
+-- fixed in the parser.
+-- .. := :: : - other special cases
+-- A single * will lex as an identifier rather than a symbol, the parser
+-- deals with this.
+
+sqlSymbol :: ParsecT String LexState Identity Tok
+sqlSymbol =
+  QuerySymbol <$> lexeme (choice [
+                           replicate 1 <$> oneOf "()[],;"
+                           ,string ".."
+                           ,try $ string "::"
+                           ,try $ string ":="
+                           ,string ":"
+                           ,many1 (oneOf "+-*/<>=~!@#%^&|`?")
+                           ])
+
+sqlFloat :: ParsecT String LexState Identity Tok
+sqlFloat = QueryFloatTok <$> float
+
+sqlInteger :: ParsecT String LexState Identity Tok
+sqlInteger = QueryIntegerTok <$> integer

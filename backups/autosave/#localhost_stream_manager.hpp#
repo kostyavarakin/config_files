@@ -1,0 +1,15 @@
+#ifndef localhost_stream_manager_hpp
+#define ocalhost_stream_managerclient_hpp
+
+
+class localhost_stream_manager
+{
+ public:
+  bool delete_block;  // no longer needed block is deleted
+  bool create_stream; // put new stream in memory
+  bool delete_stream; // drop the stream from memory
+ private:
+  
+};
+
+#endif

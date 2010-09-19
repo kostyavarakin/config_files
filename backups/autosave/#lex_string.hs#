@@ -1,0 +1,44 @@
+module Main where
+
+import Text.Parsec 
+import qualified Text.Parsec.Token as PT
+import Text.Parsec.Language
+import Text.Parsec.String
+import Text.Parsec.Pos
+import Text.Parsec.Expr
+import Text.Parsec.Perm
+
+import Control.Applicative
+import Control.Monad.Identity
+
+import Data.List
+import Data.Either
+import Control.Arrow
+import Control.Monad.Error
+import Control.Applicative
+
+lexer :: PT.TokenParser st
+lexer  = PT.makeTokenParser  (emptyDef {
+                             PT.commentStart = "/*"
+                            ,PT.commentEnd = "*/"
+                            ,PT.commentLine = "--"
+                            ,PT.nestedComments = False
+                            ,PT.identStart = letter <|> char '_'
+                            ,PT.identLetter    = alphaNum <|> oneOf "_"
+                            ,PT.opStart        = PT.opLetter emptyDef
+                            ,PT.opLetter       = oneOf ".:^*/%+-<>=|!"
+                            ,PT.reservedOpNames= []
+                            ,PT.reservedNames  = []
+                            ,PT.caseSensitive  = False
+                            })
+
+-- For efficiency, we bind all the used lexical parsers at toplevel.
+whiteSpace = PT.whiteSpace lexer
+lexeme     = PT.lexeme lexer
+symbol     = PT.symbol lexer
+natural    = PT.natural lexer
+parens     = PT.parens lexer
+semi       = PT.semi lexer
+identifier = PT.identifier lexer
+reserved   = PT.reserved lexer
+reservedOp = PT.reservedOp lexer

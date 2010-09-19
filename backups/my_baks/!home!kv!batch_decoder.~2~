@@ -1,0 +1,13 @@
+#! /bin/bash
+
+echo "purpose: sync & encode svn repo to /mnt/clnx_shared/My\ Dropbox/svn_syncenc"
+echo -n "insert passwd (note: always provide the one phrase):"
+# # creating dirs
+# find /home/kv/svn/ -type d | sed -e 's#/home/kv/svn#/mnt/clnx_shared/My\\ Dropbox/svn_syncenc#' | xargs -i{} mkdir -p "{}"
+# # sync svn with svn_sync and encode all
+# rsync -avz --recursive /home/kv/svn/ /home/kv/svn_sync/ | \
+#     xargs -i{} sh -c "if [ -f "\"/home/kv/svn_sync/{}\"" ]; then \
+# openssl aes-256-cbc -e -a -salt -in /home/kv/svn_sync/{} -out /mnt/clnx_shared/My\ Dropbox/svn_syncenc/{} -pass pass:www; fi"
+
+
+

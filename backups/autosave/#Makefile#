@@ -1,0 +1,43 @@
+
+COMPILER_C = gcc
+COMPILER_CPP = g++
+COMPILE_FLAGS = -c -O2 -Wall
+LINKER_FLAGS = -Lrabbitmq -lrabbitmq
+
+ECHO = /bin/echo
+
+utils.o: utils.c utils.h
+	@${ECHO} "Compiling utils.o"
+	${COMPILER_C} ${COMPILE_FLAGS} utils.c
+
+client.o: client.c
+	@${ECHO} "Compiling client.o"
+	${COMPILER_C} ${COMPILE_FLAGS} client.c
+
+# localhost_stream_manager.o: localhost_stream_manager.cpp
+# 	@${ECHO} "Compiling localhost_stream_manager.o"
+# 	${COMPILER_CPP} ${COMPILE_FLAGS} localhost_stream_manager.cpp
+circular_buffer_wrap.o: circular_buffer_wrap.cpp
+	@${ECHO} "Compiling circular_buffer_wrap for debugging"
+	${COMPILER_CPP} ${COMPILE_FLAGS} circular_buffer_wrap.cpp
+
+localhost_stream_manager.o: localhost_stream_manager.cpp
+	@${ECHO} "Compiling localhost_stream_manager.o for debugging"
+	${COMPILER_CPP} ${COMPILE_FLAGS} -ggdblocalhost_stream_manager.cpp -o lsm
+
+localhost_stream_manager: circular_buffer_wrap.o localhost_stream_manager.o
+	@${ECHO} "Compiling localhost_stream_manager for debugging"
+	${COMPILER_CPP} -ggdb localhost_stream_manager.o circular_buffer_wrap.o  -o lsm
+
+
+all: client.o utils.o
+	@${ECHO} "Compiling all for execution"
+	${COMPILER_C} ${LINKER_FLAGS} client.o utils.o -o client
+
+debug: client.o utils.o
+	@${ECHO} "Compiling all for debugging"
+	${COMPILER_C} ${LINKER_FLAGS} -ggdb client.o utils.o -o client
+
+clean:
+	@${ECHO} "Cleaning"
+	rm -rf *.o

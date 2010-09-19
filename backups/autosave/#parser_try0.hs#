@@ -1,0 +1,496 @@
+
+
+module QueryParser where
+
+import Text.Parsec hiding(many, optional, (<|>), string)
+import Text.Parsec.Expr
+import Text.Parsec.String
+--import Text.Parsec.Perm
+import Text.Parsec.Language
+
+import Control.Applicative
+import Control.Monad.Identity
+
+import Data.Maybe
+import Data.Char
+
+import Data.Generics.Uniplate.Data
+import Data.Generics hiding (Prefix,Infix)
+
+import QueryLexer
+
+import ParseErrors
+  
+import Ast.Ast
+import Ast.Annotation as A
+import Ast.Catalog
+
+type MySourcePos = (String,Int,Int)
+type ParseState = [MySourcePos]
+
+startState :: ParseState
+startState = []
+
+parseSql :: String -- ^ filename to use in errors
+            -> String -- ^ a string containing the sql to parse
+            -> Either ParseError StatementList
+parseSql f s = parseIt (lexSqlText f s) sqlStatements f Nothing s startState
+
+parseIt :: forall t s u b.(Stream s Identity t, Data b) =>
+           Either ParseError s
+           -> Parsec s u b
+           -> SourceName
+           -> Maybe (Int,Int)
+           -> String
+           -> u
+           -> Either ParseError b
+parseIt lexed parser fn sp src ss =
+  case lexed of
+    Left er -> Left er
+    Right toks -> let r1 = runParser parser ss fn toks
+                  in case toParseErrorExtra r1 sp src of ---BUGA!!!
+                    Left er -> Left er
+                    Right t -> Right $ fixupTree t
+
+
+sqlStatements :: ParsecT [Token] ParseState Identity [Statement]
+sqlStatements = many (sqlStatement True) <* eof
+
+-- parse a statement
+
+sqlStatement :: Bool -> ParsecT [Token] ParseState Identity Statement
+sqlStatement reqSemi =
+  (choice [
+      selectStatement
+--      ,insert
+--      ,update
+--      ,delete
+--      ,truncateSt
+--      ,copy
+--      ,set
+--      ,notify
+--       ,keyword "create" *>
+--        choice [
+--          createTable
+--          ,createSequence
+--          ,createType
+--          ,createFunction
+--          ,createView
+--          ,createDomain
+--          ,createLanguage
+--          ,createTrigger]
+--       ,keyword "alter" *>
+--        choice [
+--          alterSequence
+--          ,alterTable]
+--       ,keyword "drop" *>
+--        choice [
+--          dropSomething
+--          ,dropFunction]]
+      ])
+   <* (if reqSemi
+       then symbol ";" >> return ()
+       else optional (symbol ";") >> return ())
+  <|> copyData
+                   
+selectStatement :: ParsecT [Token] ParseState Identity Statement
+selectStatement = SelectStatement <$> pos <*> selectExpression
+
+selectExpression :: ParsecT [Token] ParseState Identity SelectExpression
+selectExpression =
+  buildExpressionParser combTable selFactor
+    where
+      selFactor = try (parens selectExpression) <|> selQuerySpec <|> values
+      combTable = [map (\(c,p) -> Infix (CombineSelect <$> pos <*> (c <$ p)) AssocLeft)
+                               [(Except, keyword "except")
+                               ,(Intersect, keyword "intersect")
+                               ,(UnionAll, try (keyword "union" *> keyword "all"))
+                               ,(Union, keyword "union")]]
+      selQuerySpec = Select <$> (pos <* keyword "select")
+                     <*> option Dupes (Distinct <$ keyword "distinct")
+                     <*> selectList
+                     <*> option [] from
+                     <*> optionMaybe whereClause
+                     <*> option [] groupBy
+                     <*> optionMaybe having
+                     <*> option [] orderBy
+                     <*> optionMaybe limit
+                     <*> optionMaybe offset
+      from = keyword "from" *> commaSep1 tref
+      groupBy = keyword "group" *> keyword "by"
+                *> commaSep1 expr
+      having = keyword "having" *> expr
+      orderBy = keyword "order" *> keyword "by"
+                *> commaSep1 oneOrder
+      oneOrder = (,) <$> expr
+                 <*> option Asc (choice [
+                                    Asc <$ keyword "asc"
+                                    ,Desc <$ keyword "desc"])
+      limit = keyword "limit" *> expr
+      offset = keyword "offset" *> expr
+      -- table refs
+      -- have to cope with:
+      -- a simple tableref i.e just a name
+      -- an aliased table ref e.g. select a.b from tbl as a
+      -- a sub select e.g. select a from (select b from c)
+      --  - these are handled in tref
+      -- then cope with joins recursively using joinpart below
+      tref = buildExpressionParser [] trefFactor
+      trefFactor = threadOptionalSuffix (nonJoinTref <|> try (parens tref)) joinPart <|> parens tref
+      --tref = optParens (threadOptionalSuffix (try (parens tref) <|> nonJoinTref) joinPart)
+      nonJoinTref = try $ optParens $ do
+                p2 <- pos
+                choice [
+                  SubTref p2
+                  <$> parens selectExpression
+                  <*> palias
+                  ,TrefFun p2
+                   <$> try (identifier >>= functionCallSuffix)
+                   <*> palias
+                  ,Tref p2
+                   <$> nkwid
+                   <*> palias]
+      --joinpart: parse a join after the first part of the tableref
+      --(which is a table name, aliased table name or subselect) -
+      --takes this tableref as an arg so it can recurse to multiple
+      --joins
+      joinPart tr1 = threadOptionalSuffix (readOneJoinPart tr1) joinPart
+      readOneJoinPart tr1 = do
+        p2 <- pos
+        JoinedTref p2 tr1
+          --look for the join flavour first
+          <$> option Unnatural (Natural <$ keyword "natural")
+          <*> choice [
+            LeftOuter <$ try (keyword "left" *> optional (keyword "outer"))
+            ,RightOuter <$ try (keyword "right" *> optional (keyword "outer"))
+            ,FullOuter <$ try (keyword "full" >> optional (keyword "outer"))
+            ,Cross <$ keyword "cross"
+            ,Inner <$ optional (keyword "inner")]
+          --recurse back to tref to read the table
+          <*> (keyword "join" *> tref)
+          --now try and read the join condition
+          <*> choice [
+            Just <$> (JoinOn <$> pos <*> (keyword "on" *> expr))
+            ,Just <$> (JoinUsing <$> pos <*> (keyword "using" *> columnNameList))
+            ,return Nothing]
+          <*> palias
+      palias = option NoAlias
+               (optionalSuffix
+                TableAlias (optional (keyword "as") *> nkwid)
+                FullAlias () (parens $ commaSep1 idString))
+      nkwid = try $ do
+        x <- idString
+              --avoid all these keywords as aliases since they can
+              --appear immediately following a tableref as the next
+              --part of the statement, if we don't do this then lots
+              --of things don't parse. Seems a bit inelegant but
+              --works for the tests and the test sql files don't know
+              --if these should be allowed as aliases without "" or
+              --[]
+              -- TODO find out what the correct behaviour here is.
+        if map toLower x `elem` ["as"
+                                ,"where"
+                                ,"except"
+                                ,"union"
+                                ,"intersect"
+                                ,"loop"
+                                ,"inner"
+                                ,"on"
+                                ,"left"
+                                ,"right"
+                                ,"full"
+                                ,"cross"
+                                ,"join"
+                                ,"natural"
+                                ,"order"
+                                ,"group"
+                                ,"limit"
+                                ,"using"
+                                ,"from"]
+          then fail "not keyword"
+          else return x
+      values = Values <$> (pos <* keyword "values") <*> commaSep1 (parens $ commaSep1 expr)
+
+fixupTree :: Data a => a -> a
+fixupTree =
+  transformBi $ \x ->
+    case x of
+           FunCall an op (expr1:FunCall _ nm expr2s:expr3s)
+             | isOperatorName op && map toLower nm `elem` ["any", "some", "all"]
+             -> LiftOperator an op flav (expr1:expr2s ++ expr3s)
+                where flav = case (map toLower nm) of
+                        "any" -> LiftAny
+                        "some" -> LiftAny
+                        "all" -> LiftAll
+                        z -> error $ "internal error in parsing lift transform: " ++ z
+           x1 -> x1
+
+copyData :: ParsecT [Token] ParseState Identity Statement
+copyData = CopyData <$> pos <*> mytoken (\tok ->
+                                          case tok of
+                                            CopyPayloadTok n -> Just n
+                                            _ -> Nothing)
+
+
+pos :: ParsecT [Token] ParseState Identity Annotation
+pos = do
+  p <- toSp <$> getPosition
+  s <- getState
+  case s of
+    [] -> return [p]
+    x:_ -> return [adjustPos x p]
+  where
+    toSp sp = A.SourcePos (sourceName sp) (sourceLine sp) (sourceColumn sp)
+    adjustPos (fn,pl,_) (A.SourcePos _ l c) = A.SourcePos fn (pl+l-1) c
+    adjustPos _ x = error $ "internal error - tried to adjust as sourcepos: " ++ show x
+
+parens :: ParsecT [Token] ParseState Identity a
+          -> ParsecT [Token] ParseState Identity a
+parens = between (symbol "(") (symbol ")")
+
+keyword :: String -> ParsecT [Token] ParseState Identity ()
+keyword k = mytoken (\tok ->
+                      case tok of
+                        IdStringTok i | lcase k == lcase i -> Just ()
+                        _ -> Nothing)
+                      where
+                        lcase = map toLower
+
+
+selectList :: ParsecT [Token] ParseState Identity SelectList
+selectList =
+  pos >>= \p ->
+  choice [
+    flip (SelectList p) <$> readInto <*> itemList
+    ,SelectList p  <$> itemList <*> option [] readInto]
+  where
+    readInto = keyword "into" *> commaSep1 idString
+    itemList = commaSep1 selectItem
+    selectItem = pos >>= \p ->
+                 optionalSuffix
+                   (SelExp p) expr
+                   (SelectItem p) () (keyword "as" *> idString)
+
+whereClause :: ParsecT [Token] ParseState Identity Expression
+whereClause = keyword "where" *> expr
+
+commaSep1 :: ParsecT [Token] ParseState Identity a
+             -> ParsecT [Token] ParseState Identity [a]
+commaSep1 p = sepBy1 p (symbol ",")
+
+expr :: ParsecT [Token] ParseState Identity Expression
+expr = buildExpressionParser table factor
+       <?> "expression"
+
+factor :: ParsecT [Token] ParseState Identity Expression
+factor =
+-- First job is to take care of forms which start as a regular
+-- expression, and then add a suffix on
+  threadOptionalSuffixes fct [castSuffix
+                             ,betweenSuffix
+                             ,arraySubSuffix]
+    where
+      fct = choice [
+-- order these so the ones which can be valid prefixes of others appear
+-- further down the list (used to be a lot more important when there
+-- wasn't a separate lexer), probably want to refactor this to use the
+-- optionalsuffix parsers to improve speed.
+
+-- One little speed optimisation, to help with pretty printed code which
+-- can contain a lot of parens - check for nested ((
+-- This little addition speeds up ./ParseFile.lhs sqltestfiles/system.sql
+-- on my system from ~4 minutes to ~4 seconds (most of the 4s is probably
+-- compilation overhead).
+
+        try (lookAhead (symbol "(" >> symbol "(")) >> parens expr
+
+-- start with the factors which start with parens - eliminate scalar
+-- subqueries since they're easy to distinguish from the others then do in
+-- predicate before row constructor, since an in predicate can start with
+-- a row constructor looking thing, then finally vanilla parens
+
+        ,scalarSubQuery
+        ,try $ threadOptionalSuffix rowCtor inPredicateSuffix
+        ,parens expr
+               
+-- try a few random things which can't start a different expression
+
+        ,positionalArg
+        ,placeholder
+        ,stringLit
+        ,floatLit
+        ,integerLit
+
+-- put the factors which start with keywords before the ones which start
+-- with a function, so we don't try an parse a keyword as a function name
+
+        ,caseParse
+        ,exists
+        ,booleanLit
+        ,nullLit
+        ,arrayLit
+        ,castKeyword
+        ,substring
+
+-- now do identifiers, functions, and window functions (each is a prefix
+-- to the next one)
+
+        ,threadOptionalSuffixes
+         identifier
+         [inPredicateSuffix
+         ,\l -> threadOptionalSuffix (functionCallSuffix l) windowFnSuffix]]
+
+-- threadOptionalSuffix
+
+-- parse the start of something -> parseResultA,
+-- then parse an optional suffix, passing parseResultA
+--   to this parser -> parseResultB
+-- return parseResultB is it succeeds, else return parseResultA
+
+-- sort of like a suffix operator parser where the suffixisable part
+-- is parsed, then if the suffix is there it wraps the suffixisable
+-- part in an enclosing tree node.
+
+-- parser1 -> tree1
+-- (parser2 tree1) -> maybe tree2
+-- tree2 isnothing ? tree1 : tree2
+
+threadOptionalSuffix :: ParsecT [tok] st Identity a
+                        -> (a -> GenParser tok st a)
+                        -> ParsecT [tok] st Identity a
+threadOptionalSuffix p1 p2 = do
+  x <- p1
+  option x (try $ p2 x)
+
+-- I'm pretty sure this is some standard monad operation but I don't know
+-- what. It's a bit like the maybe monad but when you get nothing it
+-- returns the previous result instead of nothing
+-- - if you take the parsing specific stuff out you get:
+
+-- p1 :: (Monad m) =>
+--       m b -> (b -> m (Maybe b)) -> m b
+-- p1 = do
+--    x <- p1
+--    y <- p2 x
+--    case y of
+--      Nothing -> return x
+--      Just z -> return z
+-- =====
+
+-- like thread optional suffix, but we pass a list of suffixes in, not
+-- much of a shorthand
+
+threadOptionalSuffixes :: ParsecT [tok] st Identity a
+                          -> [a -> GenParser tok st a]
+                          -> ParsecT [tok] st Identity a
+threadOptionalSuffixes p1 p2s = do
+  x <- p1
+  option x (try $ choice (map (\l -> l x) p2s))
+
+-- couldn't work how to to perms so just did this hack instead
+-- e.g.
+-- a1,a2,b1,b2,a2,b3,b4 parses to ([a1,a2,a3],[b1,b2,b3,b4])
+
+optParens :: ParsecT [Token] ParseState Identity a
+             -> ParsecT [Token] ParseState Identity a
+optParens p = try (parens p) <|> p
+
+columnNameList :: ParsecT [Token] ParseState Identity [String]
+columnNameList = parens $ commaSep1 idString
+
+optionalSuffix :: (Stream s m t2) =>
+                  (t1 -> b)
+                  -> ParsecT s u m t1
+                  -> (t1 -> a -> b)
+                  -> ()
+                  -> ParsecT s u m a
+                  -> ParsecT s u m b
+optionalSuffix c1 p1 c2 _ p2 = do
+  x <- p1
+  option (c1 x) (c2 x <$> try p2)
+
+
+identifier :: ParsecT [Token] ParseState Identity Expression
+identifier = Identifier <$> pos <*> idString
+
+functionCallSuffix :: Expression -> ParsecT [Token] ParseState Identity Expression
+functionCallSuffix (Identifier _ fnName) =
+  pos >>= \p -> FunCall p fnName
+                <$> parens (optional (keyword "all" <|> keyword "distinct") *> commaSep expr)
+functionCallSuffix s = error $ "internal error: cannot make functioncall from " ++ show s
+
+mytoken :: (Tok -> Maybe a) -> MyParser a
+mytoken test
+    = token showToken posToken testToken
+    where
+      showToken (_,tok)   = show tok
+      posToken  (posi,_)  = posi
+      testToken (_,tok)   = test tok
+
+
+table :: [[Operator [Token] ParseState Identity Expression]]
+table = [--[binary "::" (BinOpCall Cast) AssocLeft]
+         --missing [] for array element select
+         [prefix "-" "u-"]
+        ,[binary "^" AssocLeft]
+        ,[binary "*" AssocLeft
+         ,idHackBinary "*" AssocLeft
+         ,binary "/" AssocLeft
+         ,binary "%" AssocLeft]
+        ,[binary "+" AssocLeft
+         ,binary "-" AssocLeft]
+         --should be is isnull and notnull
+        ,[postfixks ["is", "not", "null"] "!isnotnull"
+         ,postfixks ["is", "null"] "!isnull"]
+         --other operators all added in this list according to the pg docs:
+        ,[binary "<->" AssocNone
+         ,binary "<=" AssocRight
+         ,binary ">=" AssocRight
+         ,binary "||" AssocLeft
+         ,prefix "@" "@"
+         ]
+         --in should be here, but is treated as a factor instead
+         --between
+         --overlaps
+        ,[binaryk "like" "!like" AssocNone
+         ,binarycust (symbol "!=") "<>" AssocNone]
+         --(also ilike similar)
+        ,[binary "<" AssocNone
+         ,binary ">" AssocNone]
+        ,[binary "=" AssocRight
+         ,binary "<>" AssocNone]
+        ,[notNot
+         ,prefixk "not" "!not"
+         ]
+        ,[binaryk "and" "!and" AssocLeft
+         ,binaryk "or" "!or" AssocLeft]]
+    where
+      binary s = binarycust (symbol s) s
+      -- '*' is lexed as an id token rather than a symbol token, so
+      -- work around here
+      idHackBinary s = binarycust (keyword s) s
+      binaryk = binarycust . keyword
+      prefix = unaryCust Prefix . symbol
+      prefixk = unaryCust Prefix . keyword
+      postfixks = unaryCust Postfix . mapM_ keyword
+      binarycust opParse t =
+        Infix $ try $ do
+          f <- FunCall <$> pos <*> (t <$ opParse)
+          return (\l -> \m -> f [l,m])
+      unaryCust ctor opParse t =
+        ctor $ try $ do
+          f <- FunCall <$> pos <*> (t <$ opParse)
+          return (\l -> f [l])
+      --hack - haven't worked out why parsec buildexpression parser won't parse
+      -- something like "not not EXPR" without parens so hack here
+      notNot = Prefix (try $ do
+                        p1 <- pos
+                        keyword "not"
+                        p2 <- pos
+                        keyword "not"
+                        return (\l -> FunCall p1 "!not" [FunCall p2 "!not" [l]]))
+
+
+castSuffix :: Expression -> ParsecT [Token] ParseState Identity Expression
+castSuffix ex = pos >>= \p -> Cast p ex <$> (symbol "::" *> typeName)
+
