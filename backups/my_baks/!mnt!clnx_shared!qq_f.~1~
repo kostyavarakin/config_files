@@ -1,4 +1,0 @@
-find . -type d | xargs -i{} chown kv:kv {}
-find . -type d | xargs -i{} chmod 2775 {}
-find . -type f | xargs -i{} chmod 0775 {}
-find . -type f | xargs -i{} chown kv:kv {}

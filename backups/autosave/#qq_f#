@@ -1,6 +1,0 @@
-#! /bin/bash 
-
-find . \( -path '*lptp_bak*' -prune \) -o -type d -print | xargs -P 20 -n 1 -i{} chown kv:kv {}
-find . \( -path '*lptp_bak*' -prune \) -o -type d | xargs -P 20 -n 1 -i{} chmod 2775 {}
-find . \( -path '*lptp_bak*' -prune \) -o -type f | xargs -P 20 -n 1 -i{} chmod 0775 {}
-find . \( -path '*lptp_bak*' -prune \) -o -type f | xargs -P 20 -n 1 -i{} chown kv:kv {}

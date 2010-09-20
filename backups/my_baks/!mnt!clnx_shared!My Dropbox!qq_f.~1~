@@ -1,6 +1,0 @@
-#! /bin/bash 
-
-find . -type d | xargs -P 20 -n 1 -i{} chown kv:kv {}
-find . -type d | xargs -P 20 -n 1 -i{} chmod 2775 {}
-find . -type f | xargs -P 20 -n 1 -i{} chmod 0775 {}
-find . -type f | xargs -P 20 -n 1 -i{} chown kv:kv {}

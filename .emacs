@@ -403,10 +403,10 @@
 ;; ============================
 ;; load TRAMP customizations
 ;; ============================
-(require 'tramp)
-(require 'tramp-util)
-(load-file "~/EMACS/lib/tramp_settings.el")
-(require 'tramp_settings)
+;; (require 'tramp)
+;; (require 'tramp-util)
+;; (load-file "~/EMACS/lib/tramp_settings.el")
+;; (require 'tramp_settings)
 
 ;; ============================
 ;; load Eshell
@@ -567,9 +567,9 @@
 ;; ==========================================
 ;; ERLANG mode
 ;; ==========================================
-(setq load-path (cons "/usr/share/emacs/site-lisp/erlang/" load-path))
-(setq erlang-electric-commands '())
-(require 'erlang-start)
+;; (setq load-path (cons "/usr/share/emacs/site-lisp/erlang/" load-path))
+;; (setq erlang-electric-commands '())
+;; (require 'erlang-start)
 
 ;; ;; ==========================================
 ;; ;; GOOGLE mode
@@ -590,11 +590,11 @@
 ;; ==========================================
 ;; W3M mode
 ;; ==========================================
-(require 'w3m-load)
-(setq browse-url-browser-function 'w3m-browse-url)
-(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-;; optional keyboard short-cut
-(setq w3m-use-cookies t)
+;; (require 'w3m-load)
+;; (setq browse-url-browser-function 'w3m-browse-url)
+;; (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+;; ;; optional keyboard short-cut
+;; (setq w3m-use-cookies t)
 
 ;; ==========================================
 ;; SVN mode

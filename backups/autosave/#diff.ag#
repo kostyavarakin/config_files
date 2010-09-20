@@ -1,9 +1,0 @@
-DATA Root
- | Root list : List
-DATA List
- | Nil
- | Cons head : Float tail : List
-ATTR List [|| length : Float]
-SEM List
- | Nil lhs.length = 0.0
- | Cons lhs.length = 1.0 + @tail.length

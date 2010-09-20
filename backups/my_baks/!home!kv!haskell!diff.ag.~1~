@@ -1,5 +1,0 @@
-DATA Root
- | Root list : List
-DATA List
- | Nil
- | Cons head : Float tail : List

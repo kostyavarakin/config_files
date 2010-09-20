@@ -1,3 +1,0 @@
-:set -XDeriveDataTypeable -XRankNTypes
-:cd /home/kv/haskell/working_version/xstream/
-:load parser_try0.hs

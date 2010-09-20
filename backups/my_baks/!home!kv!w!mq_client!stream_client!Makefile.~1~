@@ -1,7 +1,0 @@
-
-
-
-
-amqp_listen$(EXEEXT): $(amqp_listen_OBJECTS) $(amqp_listen_DEPENDENCIES) 
-	@rm -f amqp_listen$(EXEEXT)
-	$(LINK) $(amqp_listen_OBJECTS) $(amqp_listen_LDADD) $(LIBS)

@@ -2,13 +2,13 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu May 13 23:44:44 2010
+;; Created Mon Sep 20 08:28:21 2010
 ;; Desktop file format version 206
-;; Emacs version 22.3.1
+;; Emacs version 23.1.1
 
 ;; Global section:
 (setq extended-command-history '("compile" "eshell" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "delete-trailing-whitespace" "make-directory" "compile" "highlight-parentheses-mode" "compile" "indent-region" "rename-file" "gdb" "compile" "delete-trailing-whitespace" "compile" "uncomment-region" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile"))
-(setq file-name-history '("~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/rabbit_client.cpp" "~/w/temp/" "~/w/temp/lst.cpp" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/Makefile" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/message_list.hpp" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/" "~/w/gpgpu_stream/stream_client/shared_memory_client.cpp" "~/w/gpgpu_stream/stream_client/circular_buffer_wrap.cpp" "~/w/gpgpu_stream/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/gpgpu_stream/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/.gdbinit" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/client.c" "~/w/mq_client/stream_client/.gdbinit" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/shared_memory_server.cpp" "~/w/mq_client/stream_client/circular_buffer_wrap.cpp"))
+(setq file-name-history '("~/EMACS/lib" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/rabbit_client.cpp" "~/w/temp/" "~/w/temp/lst.cpp" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/Makefile" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/message_list.hpp" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/" "~/w/gpgpu_stream/stream_client/shared_memory_client.cpp" "~/w/gpgpu_stream/stream_client/circular_buffer_wrap.cpp" "~/w/gpgpu_stream/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/gpgpu_stream/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/.gdbinit" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/client.c" "~/w/mq_client/stream_client/.gdbinit" "~/w/mq_client/stream_client/shared_memory_controller.cpp"))
 (setq grep-history nil)
 (setq compile-history '("make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbitmq_client" "make -k message_list.o" "g++ -time -Wall -ggdb lst.cpp -o lst" "make -k message_list.o" "make -k message_list" "make -k opencl_boost_client_debug" "make -k message_list" "make -k message_list.o" "make -k shared_memory_controller_debug" "make -k opencl_boost_client_debug" "make -k shared_memory_controller_debug" "make -k shared_memory_controller" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager.o" "make -k localhost_stream_manager" "make -k localhost_stream_manager.o" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager" "make -k circular_buffer_wrap.o" "make -k circular_buffer_wrap" "make -k localhost_stream_manager" "make -k local_host_stream_manager"))
 (setq minibuffer-history '("22" "45" "15" "24" "21" "parseSql" "P.parseSql" "stripAnnotations" "sss"))
@@ -16,163 +16,20 @@
 (setq read-expression-history nil)
 (setq regexp-history nil)
 (setq regexp-search-ring nil)
-(setq search-ring '("rabbit_client" "." "ex" "value_type" "shmemallocator" "compile" "break" "container_type" "stringp" "colo" "preparedkernels" "saveh" "goog" "g-" "epmd" "callsqlocl"))
+(setq search-ring '("w3m" "erla" "tramp" "rabbit_client" "." "ex" "value_type" "shmemallocator" "compile" "break" "container_type" "stringp" "colo" "preparedkernels" "saveh" "goog"))
 (setq shell-command-history '("ls -l shared_memory_controller" "ls -l localhost_stream_manager" "ls -l  /home/kv/w/mq_client/stream_client/localhost_stream_manager.cpp" "which python" "which pyrhon" "df -h"))
 (setq tags-file-name "/mnt/clnx_shared/My Dropbox/gpgpu_stream/hssqlppp/TAGS")
-(setq register-alist (list (list 112 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "scratch_bak")))) mk))))
+(setq register-alist (list (list 112 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "*scratch*")))) mk))))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/Makefile"
-  "Makefile"
-  'makefile-gmake-mode
-  nil
-  1997
-  '(1652 nil)
-  nil
-  nil
-  '((show-trailing-whitespace . t) (indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix) (overwrite-mode) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/rabbit_client.cpp"
-  "rabbit_client.cpp"
-  'c++-mode
-  '(abbrev-mode)
-  1
-  '(118 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/message_list.hpp"
-  "message_list.hpp"
-  'c++-mode
-  '(abbrev-mode highlight-parentheses-mode)
-  541
-  '(472 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/message_list.cpp"
-  "message_list.cpp"
-  'c++-mode
-  '(abbrev-mode highlight-parentheses-mode)
-  102
-  '(88 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1) (overwrite-mode) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/circular_buffer_wrap.cpp"
-  "circular_buffer_wrap.cpp"
-  'c++-mode
-  '(abbrev-mode)
-  549
-  '(1878 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/shared_memory_controller.cpp"
-  "shared_memory_controller.cpp"
-  'c++-mode
-  '(abbrev-mode)
-  113
-  '(nil nil)
+  "/root/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(egg-minor-mode)
+  13535
+  '(21616 t)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/temp/lst.cpp"
-  "lst.cpp"
-  'c++-mode
-  '(abbrev-mode)
-  346
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1)))
-
-(desktop-create-buffer 206
-  nil
-  "stream_client"
-  'dired-mode
-  nil
-  1645
-  '(nil nil)
-  t
-  '("/home/kv/w/mq_client/stream_client/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/vector_chunk.cpp"
-  "vector_chunk.cpp"
-  'c++-mode
-  '(abbrev-mode)
-  1437
-  '(57 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/kv/scratch_bak"
-  "scratch_bak"
-  'lisp-interaction-mode
-  nil
-  1625
-  '(1211 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/.gdbinit"
-  ".gdbinit"
-  'gdb-script-mode
-  nil
-  324
-  '(250 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/rabbitmq_client.c"
-  "rabbitmq_client.c"
-  'c-mode
-  '(abbrev-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/rabbit_client.py"
-  "rabbit_client.py"
-  'python-mode
-  nil
-  674
-  '(1 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . iso-latin-1) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/kv/w/mq_client/stream_client/rabbit_publisher.py"
-  "rabbit_publisher.py"
-  'python-mode
-  nil
-  21
-  '(1 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . iso-latin-1) (truncate-lines . t)))
 
