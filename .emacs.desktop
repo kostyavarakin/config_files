@@ -2,13 +2,13 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Sep 20 08:28:21 2010
+;; Created Sun Sep 26 18:50:26 2010
 ;; Desktop file format version 206
 ;; Emacs version 23.1.1
 
 ;; Global section:
-(setq extended-command-history '("compile" "eshell" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "delete-trailing-whitespace" "make-directory" "compile" "highlight-parentheses-mode" "compile" "indent-region" "rename-file" "gdb" "compile" "delete-trailing-whitespace" "compile" "uncomment-region" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile"))
-(setq file-name-history '("~/EMACS/lib" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/rabbit_client.cpp" "~/w/temp/" "~/w/temp/lst.cpp" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/Makefile" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/message_list.hpp" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/" "~/w/gpgpu_stream/stream_client/shared_memory_client.cpp" "~/w/gpgpu_stream/stream_client/circular_buffer_wrap.cpp" "~/w/gpgpu_stream/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/gpgpu_stream/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/.gdbinit" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/client.c" "~/w/mq_client/stream_client/.gdbinit" "~/w/mq_client/stream_client/shared_memory_controller.cpp"))
+(setq extended-command-history '("load-perl-template" "shell-script-mode" "compile" "eshell" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "delete-trailing-whitespace" "make-directory" "compile" "highlight-parentheses-mode" "compile" "indent-region" "rename-file" "gdb" "compile" "delete-trailing-whitespace" "compile" "uncomment-region" "compile" "gdb" "compile" "gdb" "compile"))
+(setq file-name-history '("~/.fvwm2rc" "~/.Xresources" "/etc/ld.so.conf" "/devel/ati-stream/" "/devel/ati-stream/starter" "/lib/modules/fglrx/build_mod/2.6.x/kcl_ioctl.c" " /lib/modules/fglrx/build_mod/2.6.x/kcl_ioctl.c" "~/EMACS/lib" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/rabbit_client.cpp" "~/w/temp/" "~/w/temp/lst.cpp" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/Makefile" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/message_list.hpp" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/" "~/w/gpgpu_stream/stream_client/shared_memory_client.cpp" "~/w/gpgpu_stream/stream_client/circular_buffer_wrap.cpp" "~/w/gpgpu_stream/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/gpgpu_stream/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs"))
 (setq grep-history nil)
 (setq compile-history '("make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbitmq_client" "make -k message_list.o" "g++ -time -Wall -ggdb lst.cpp -o lst" "make -k message_list.o" "make -k message_list" "make -k opencl_boost_client_debug" "make -k message_list" "make -k message_list.o" "make -k shared_memory_controller_debug" "make -k opencl_boost_client_debug" "make -k shared_memory_controller_debug" "make -k shared_memory_controller" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager.o" "make -k localhost_stream_manager" "make -k localhost_stream_manager.o" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager" "make -k circular_buffer_wrap.o" "make -k circular_buffer_wrap" "make -k localhost_stream_manager" "make -k local_host_stream_manager"))
 (setq minibuffer-history '("22" "45" "15" "24" "21" "parseSql" "P.parseSql" "stripAnnotations" "sss"))
@@ -23,12 +23,56 @@
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/root/.emacs"
+  nil
+  ".fvwm"
+  'dired-mode
+  '(egg-minor-mode)
+  156
+  '(nil nil)
+  t
+  '("/root/.fvwm/")
+  nil)
+
+(desktop-create-buffer 206
+  "/root/.Xresources"
+  ".Xresources"
+  'conf-xdefaults-mode
+  '(egg-minor-mode)
+  583
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/devel/ati-stream/starter"
+  "starter"
+  'sh-mode
+  '(egg-minor-mode)
+  8
+  '(84 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "ati-stream"
+  'dired-mode
+  '(egg-minor-mode)
+  304
+  '(nil nil)
+  t
+  '("/devel/ati-stream/")
+  nil)
+
+(desktop-create-buffer 206
+  "/root/config_files/.emacs"
   ".emacs"
   'emacs-lisp-mode
   '(egg-minor-mode)
-  13535
-  '(21616 t)
+  14676
+  '(21616 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix)))
