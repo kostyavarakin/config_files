@@ -433,11 +433,11 @@
 ;; ============================
 ;; SQL mode
 ;; ============================
-(setq sql-user "cvarakin")
-(setq sql-server "iapp026.iil.intel.com")
-(setq sql-database "gsr_fcpv")
+(setq sql-user "root")
+(setq sql-server "localhost")
+(setq sql-database "sqream")
 (setq sql-mysql-options (list "--local-infile" "--disable-auto-rehash" "-P 3306"))
-(setq sql-password "insert")
+;;(setq sql-password "")
 (load-file "~/EMACS/lib/sql-indent.el")
 (require 'sql-indent)
 
@@ -661,7 +661,7 @@ use File::Path;
 use File::stat;
 use Cwd;
 use File::Temp qw/tempfile/; # get tempfile name + ilehandle
-use IPC::open3; # open pipe to system cmd and gather control on it STDIN,STDOUT,STDERR
+#use IPC::open3; # open pipe to system cmd and gather control on it STDIN,STDOUT,STDERR
 use Symbol;   # manipulate Perl symbols and their names. Symbol::gensym  creates an anonymous
               # glob and returns a reference to it. Such a glob reference can be used as a file or directory handle.
 use Storable; # store and retrieve variables from files
