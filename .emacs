@@ -171,12 +171,14 @@
 
 (set-face-background 'menu "cyan")
 (set-face-background 'mode-line "black")
-(set-face-foreground 'mode-line "gray90")
-(set-face-background 'mode-line-inactive "white")
-(set-face-foreground 'mode-line-inactive "black")
+(set-face-foreground 'mode-line "red")
+(set-face-background 'mode-line-inactive "black")
+(set-face-foreground 'mode-line-inactive "gray90")
 (set-face-background 'tool-bar "lightsteelblue")
 ;;(set-face-background 'font-lock-comment-face "darkkhaki")
 (set-face-background 'font-lock-comment-face "black")
+
+
 ;; ===========================
 ;; Behaviour
 ;; ===========================
@@ -600,6 +602,22 @@
 ;; SVN mode
 ;; ==========================================
 (require 'psvn)
+
+;; ==========================================
+;; ORG mode
+;; ==========================================
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;; ============================
+;; My functions
+;; ============================
+(require 'ispell)
+(setq ispell-process-directory (expand-file-name "~/config_files/ispell_files"))
+
 
 ;; ============================
 ;; My functions

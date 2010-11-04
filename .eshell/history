@@ -720,3 +720,53 @@ ls shared_memory_controller.cpp
 ls -l rabbit_client.o message_list.o
 ls -l rabbit_client.o message_list.o
 grep 'circular_buffer_wrap\.cpp' *
+ls
+cd 
+ls
+cd .ssh/
+ls
+pwd
+ssh git@github.com
+ssh localhost
+cd /devel/gpgpu_stream/
+ls
+mkdir db_client
+cd db_client/
+ls
+exit
+pwd
+cd /devel/
+ls
+cd gpgpu_stream/
+ls
+cd db_client/
+ls
+chmod a+x db_populate.pl 
+whoami 
+./db_populate.pl 
+./db_populate.pl > s1
+wc -l s1
+head s1
+./db_populate.pl > s2
+./db_populate.pl > s2
+./db_populate.pl > s1
+exit
+gcc
+g++
+su
+whoami
+exit
+ls
+source ../../../../../../starter 
+cat ../../../../../../starter 
+./build/debug/x86_64/CLInfo
+echo $LD_LIBRARY_PATH
+exit
+cd /devel/odbc_try/
+ghci
+ghci -XScopedTypeVariables -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
+ghci -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
+cd /devel/odbc_try/
+ghci -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
+ghci -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
+exit

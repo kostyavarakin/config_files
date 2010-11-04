@@ -20,8 +20,9 @@ shell -bash
 hardstatus on
 
 backtick 1 5 4 sh -c "cat /proc/meminfo | grep 'MemFree\|MemTotal\|SwapFree\|SwapTotal' | xargs -n12 | awk '{printf("\""Mem:%d/%d|Swp:%d/%d\n"\"","\$5"/1024, "\$2"/1024, "\$11"/1024, "\$8"/1024)}'"
+backtick 2 5 4 sh -c "acpi | awk '{print "\$4"}' | sed 's#,##'"
 hardstatus alwayslastline
-hardstatus string '%{gk}[%H][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f%t%?(%u)%?%{=bkR})%{=kw}%?%+Lw%?%?%=%{g}][%l][%m/%d %c][%1`]'
+hardstatus string '%{gk}[%H][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f%t%?(%u)%?%{=bkR})%{=kw}%?%+Lw%?%?%=%{g}][%l][%m/%d %c][%2`][%1`]'
 
 
 # caption     always        "%{gk}[%H][%l][%m/%d %c][%1`]"

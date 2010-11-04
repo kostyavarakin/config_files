@@ -129,7 +129,7 @@ The commands available from within a Haskell script are:
   :type 'string
   :group 'haskell-ghci)
 
-(defcustom haskell-ghci-program-args '("-i/home/kv/.cabal/lib/parsec-3.0.1/ghc-6.12.1/:/home/kv/.cabal/lib/uniplate-1.5.1/ghc-6.12.1/:/home/kv/.cabal/lib/HDBC-2.2.3/ghc-6.12.1/")
+(defcustom haskell-ghci-program-args '("-Wall -i.:/home/kv/.cabal/lib/MissingH-1.1.0.3/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/:/home/kv/.cabal/lib/vector-0.7/ghc-6.10.4/")
   "*A list of string args to pass when starting the GHCi interpreter."
   :type '(repeat string)
   :group 'haskell-ghci)

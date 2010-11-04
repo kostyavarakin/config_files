@@ -2,56 +2,221 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Sep 27 11:40:22 2010
+;; Created Tue Nov  2 17:09:25 2010
 ;; Desktop file format version 206
 ;; Emacs version 23.1.1
 
 ;; Global section:
-(setq extended-command-history '("sql-mysql" "load-perl-template" "shell-script-mode" "compile" "eshell" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "gdb" "compile" "delete-trailing-whitespace" "make-directory" "compile" "highlight-parentheses-mode" "compile" "indent-region" "rename-file" "gdb" "compile" "delete-trailing-whitespace" "compile" "uncomment-region" "compile" "gdb" "compile" "gdb"))
-(setq file-name-history '("~/.emacs" "~/.fvwm2rc" "~/.Xresources" "/etc/ld.so.conf" "/devel/ati-stream/" "/devel/ati-stream/starter" "/lib/modules/fglrx/build_mod/2.6.x/kcl_ioctl.c" " /lib/modules/fglrx/build_mod/2.6.x/kcl_ioctl.c" "~/EMACS/lib" "~/.emacs" "~/w/mq_client/stream_client/shared_memory_controller.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/rabbit_client.cpp" "~/w/temp/" "~/w/temp/lst.cpp" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/.emacs" "~/w/mq_client/stream_client/Makefile" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/message_list.hpp" "~/w/mq_client/stream_client/message_list.cpp" "~/w/mq_client/stream_client/" "~/w/gpgpu_stream/stream_client/shared_memory_client.cpp" "~/w/gpgpu_stream/stream_client/circular_buffer_wrap.cpp" "~/w/gpgpu_stream/stream_client/opencl_boost_client.cpp" "~/w/mq_client/stream_client/opencl_boost_client.cpp" "~/w/gpgpu_stream/stream_client/rabbitmq_client.c" "~/w/mq_client/stream_client/" "~/w/mq_client/stream_client/opencl_boost_client.cpp"))
+(setq extended-command-history '("haskell-ghci-start-process" "load-file" "sql-mysql" "delete-trailing-whitespace" "highlight-parentheses-mode" "uncomment-region" "delete-trailing-whitespace" "haskell-ghci-start-process" "delete-trailing-whitespace" "indent-region" "delete-trailing-whitespace" "indent-region" "sql-mysql" "indent-region" "highlight-parentheses-mode" "jdb" "ispell-buffer" "auto-fill-mode" "fill-region" "text-mode" "shell" "compile" "uncomment-region" "highlight-parentheses-mode" "hs-minor-mode" "sql-mysql" "haskell-ghci-start-process" "indent-region" "compile" "c++-mode"))
+(setq file-name-history '("~/EMACS/lib/haskell-mode/haskell-ghci.el" "~/.emacs" "/devel/lucene/" "/devel/lucene/HelloLucene.java" "/devel/lucene/lucene-3.0.2/src/demo/org/apache/lucene/demo/IndexFiles.java" "~/.emacs" "~/.screenrc" "/devel/lucene/helloWord.java" "/devel/lucene/HelloLucene.java" "~/EMACS/lib/highlight-parentheses.el" "~/.emacs" "/devel/gpgpu_stream/db_client/db_upload.sql" "/devel/gpgpu_stream/db_client/db_populate.pl" "~" "~/meeting_minutes_Gonen" "~/.asoundrc" "/devel/odbc_try/qq.xls" "/devel/odbc_try/qq" "~/lucene.todo" "~/backups/autosave/#odbc_try.lhs#" "~/EMACS/lib/haskell-mode/haskell-ghci.el" "/devel/odbc_try/Makefile" "/devel/odbc_try/" "/devel/odbc_try/openclsdkrules.mk" "../../../../../make/openclsdkrules.mk" "/devel/ati-stream/ati-stream-sdk-v2.1-lnx64/samples/opencl/cpp_cl/app/HelloCL/Makefile" "/devel/odbc_try/Makefile" "/devel/odbc_try/openclsdkdefs.mk" "../../../../../make/openclsdkdefs.mk" "/devel/ati-stream/ati-stream-sdk-v2.1-lnx64/samples/opencl/cpp_cl/app/HelloCL/Makefile"))
 (setq grep-history nil)
-(setq compile-history '("make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbitmq_client" "make -k message_list.o" "g++ -time -Wall -ggdb lst.cpp -o lst" "make -k message_list.o" "make -k message_list" "make -k opencl_boost_client_debug" "make -k message_list" "make -k message_list.o" "make -k shared_memory_controller_debug" "make -k opencl_boost_client_debug" "make -k shared_memory_controller_debug" "make -k shared_memory_controller" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager.o" "make -k localhost_stream_manager" "make -k localhost_stream_manager.o" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager" "make -k circular_buffer_wrap.o" "make -k circular_buffer_wrap" "make -k localhost_stream_manager" "make -k local_host_stream_manager"))
-(setq minibuffer-history '("22" "45" "15" "24" "21" "parseSql" "P.parseSql" "stripAnnotations" "sss"))
+(setq compile-history '("make -k " "make -k debug" "make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbit_client.o" "make -k rabbit_client" "make -k rabbitmq_client" "make -k message_list.o" "g++ -time -Wall -ggdb lst.cpp -o lst" "make -k message_list.o" "make -k message_list" "make -k opencl_boost_client_debug" "make -k message_list" "make -k message_list.o" "make -k shared_memory_controller_debug" "make -k opencl_boost_client_debug" "make -k shared_memory_controller_debug" "make -k shared_memory_controller" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager.o" "make -k localhost_stream_manager" "make -k localhost_stream_manager.o" "make -k circular_buffer_wrap.o" "make -k localhost_stream_manager" "make -k circular_buffer_wrap.o" "make -k circular_buffer_wrap" "make -k localhost_stream_manager" "make -k local_host_stream_manager"))
+(setq minibuffer-history '("localhost" "sqream" "root" "87" "localhost" "sqream" "root" "localhost" "sqream" "root" "207" "71" "77" "75" "53" "57" "45" "66" "localhost" "sqream" "root" "63" "26" "25" "57" "136" "96" "98" "90" "83"))
 (setq query-replace-history '("OpenCL_shared_memory" "MySharedMemory" "rabbitmq_client" "client" "rabbitmq_" "client" "circular_buffer_wrap" "bounded_buffer" "COMPILER_C" "COMPILER" "localhost_stream_manager" "local_host_stream_manager"))
 (setq read-expression-history nil)
 (setq regexp-history nil)
 (setq regexp-search-ring nil)
-(setq search-ring '("mysql" "w3m" "erla" "tramp" "rabbit_client" "." "ex" "value_type" "shmemallocator" "compile" "break" "container_type" "stringp" "colo" "preparedkernels" "saveh"))
+(setq search-ring '("-i" "1024" "s" "f" "index" "quit" "tex" "dbh" "gre" "nu" "stmt" "s" "r" "me" "Go" "grepdata"))
 (setq shell-command-history '("ls -l shared_memory_controller" "ls -l localhost_stream_manager" "ls -l  /home/kv/w/mq_client/stream_client/localhost_stream_manager.cpp" "which python" "which pyrhon" "df -h"))
 (setq tags-file-name "/mnt/clnx_shared/My Dropbox/gpgpu_stream/hssqlppp/TAGS")
-(setq register-alist (list (list 112 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "*scratch*")))) mk))))
+(setq register-alist (list (list 112 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk))))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/kv/.emacs"
-  ".emacs"
-  'emacs-lisp-mode
+  "/home/kv/kv.org"
+  "kv.org"
+  'org-mode
+  '(auto-fill-mode egg-minor-mode)
+  182
+  '(210 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (fill-column . 80) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/odbc_try.lhs"
+  "odbc_try.lhs"
+  'literate-haskell-mode
+  '(highlight-parentheses-mode egg-minor-mode)
+  300
+  '(4604 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/home/kv/devel/monadicTRY/try0.lhs"
+  "try0.lhs"
+  'literate-haskell-mode
   '(egg-minor-mode)
-  14843
+  222
+  '(185 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/qq"
+  "qq"
+  'text-mode
+  '(auto-fill-mode egg-minor-mode)
+  61
   '(1 nil)
   nil
   nil
+  '((buffer-file-coding-system . utf-8-unix) (fill-column . 80)))
+
+(desktop-create-buffer 206
+  "/devel/lucene/HelloLucene.java"
+  "HelloLucene.java"
+  'java-mode
+  '(abbrev-mode highlight-parentheses-mode egg-minor-mode)
+  1383
+  '(1104 nil)
+  nil
+  nil
   '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/devel/ati-stream/starter"
-  "starter"
-  'sh-mode
-  '(egg-minor-mode)
-  230
+  "/home/kv/lucene.todo"
+  "lucene.todo"
+  'text-mode
+  '(auto-fill-mode egg-minor-mode)
+  122
+  '(122 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (fill-column . 80)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/join2d.cpp"
+  "join2d.cpp"
+  'c++-mode
+  '(abbrev-mode egg-minor-mode)
+  4751
+  '(5013 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/devel/ati-stream/ati-stream-sdk-v2.1-lnx64/samples/opencl/cpp_cl/app/HelloCL/HelloCL.cpp"
+  "HelloCL.cpp"
+  'c++-mode
+  '(abbrev-mode egg-minor-mode)
+  9538
+  '(7812 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/image2dCopu.cl"
+  "image2dCopu.cl"
+  'c++-mode
+  '(abbrev-mode egg-minor-mode)
+  1322
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . undecided-unix)))
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(egg-minor-mode)
+  10
+  '(nil nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode . t) (buffer-file-coding-system . utf-8-unix)))
 
 (desktop-create-buffer 206
   nil
-  "ati-stream"
+  "devel"
   'dired-mode
   '(egg-minor-mode)
-  471
+  393
   '(nil nil)
   t
-  '("/devel/ati-stream/")
+  '("/devel/")
   nil)
+
+(desktop-create-buffer 206
+  "/devel/ati-stream/ati-stream-sdk-v2.1-lnx64/samples/opencl/cpp_cl/app/CLInfo/CLInfo.cpp"
+  "CLInfo.cpp"
+  'c++-mode
+  '(abbrev-mode egg-minor-mode)
+  7532
+  '(21748 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kv/scratch_bak"
+  "scratch_bak"
+  'lisp-interaction-mode
+  '(egg-minor-mode)
+  871
+  '(738 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/devel/ati-stream/ati-stream-sdk-v2.1-lnx64/samples/opencl/cpp_cl/app/HelloCL/HelloCL_Kernels.cl"
+  "HelloCL_Kernels.cl"
+  'c++-mode
+  '(abbrev-mode egg-minor-mode)
+  362
+  '(150 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/devel/gpgpu_stream/db_client/db_upload.sql"
+  "db_upload.sql"
+  'sql-mode
+  '(egg-minor-mode)
+  507
+  '(415 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/devel/gpgpu_stream/db_client/db_populate.pl"
+  "db_populate.pl"
+  'perl-mode
+  '(egg-minor-mode)
+  2950
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/devel/odbc_try/RBTree.lhs"
+  "RBTree.lhs"
+  'literate-haskell-mode
+  '(egg-minor-mode)
+  344
+  '(333 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/devel/gpgpu_stream/stripped-hssqlppp-0.2.0/Database/HsSqlPpp/Parsing/Parser.lhs"
+  "Parser.lhs"
+  'literate-haskell-mode
+  '(egg-minor-mode)
+  3484
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
