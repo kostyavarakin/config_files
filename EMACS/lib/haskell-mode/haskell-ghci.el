@@ -124,12 +124,12 @@ The commands available from within a Haskell script are:
 (defvar haskell-ghci-process-buffer nil
   "*Buffer used for communication with GHCi subprocess for current buffer.")
 
-(defcustom haskell-ghci-program-name "ghci"
+(defcustom haskell-ghci-program-name "/usr/bin/ghci"
   "*The name of the GHCi interpreter program."
   :type 'string
   :group 'haskell-ghci)
 
-(defcustom haskell-ghci-program-args '("-Wall -i.:/home/kv/.cabal/lib/MissingH-1.1.0.3/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/:/home/kv/.cabal/lib/vector-0.7/ghc-6.10.4/")
+(defcustom haskell-ghci-program-args '("-Wall" "-i.:/usr/local/lib/ghc-6.12.3/")
   "*A list of string args to pass when starting the GHCi interpreter."
   :type '(repeat string)
   :group 'haskell-ghci)

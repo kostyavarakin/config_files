@@ -166,7 +166,7 @@
 (when (fboundp 'blink-cursor-mode)
   (blink-cursor-mode -1))
 
-(if (>= 21 emacs-major-version)
+(if (= 21 emacs-major-version)
     (load-file "~/EMACS/lib//xterm-256color.el"))
 
 (set-face-background 'menu "cyan")
@@ -255,8 +255,8 @@
  '(ediff-fine-diff-face-C ((((class color) (min-colors 16)) (:background "Turquoise" :foreground "green4"))))
  '(ediff-odd-diff-face-B ((((class color) (min-colors 16)) (:background "light grey" :foreground "blue"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "purple" :foreground "white"))))
- '(widget-field-face ((((type tty)) (:background "yellow3" :foreground "cyan"))) t)
- '(widget-single-line-field-face ((((type tty)) (:background "green3" :foreground "violet"))) t))
+ '(widget-field-face ((((type tty)) (:background "yellow3" :foreground "cyan"))))
+ '(widget-single-line-field-face ((((type tty)) (:background "green3" :foreground "violet")))))
 
 ;; ============================
 ;; COMINT customization
@@ -405,10 +405,10 @@
 ;; ============================
 ;; load TRAMP customizations
 ;; ============================
-(require 'tramp)
-;;(require 'tramp-util)
-(load-file "~/EMACS/lib/tramp_settings.el")
-(require 'tramp_settings)
+;; (require 'tramp)
+;; (require 'tramp-util)
+;; (load-file "~/EMACS/lib/tramp_settings.el")
+;; (require 'tramp_settings)
 
 ;; ============================
 ;; load Eshell
@@ -583,11 +583,11 @@
         ;; when starting an Erlang shell in Emacs, default in the node name
         (setq inferior-erlang-machine-options '("-sname" "emacs"))
         ;; add Erlang functions to an imenu menu
-        ;; (imenu-add-to-menubar "imenu")
+        (imenu-add-to-menubar "imenu")
         ;; customize keys
         (local-set-key [return] 'newline-and-indent)
         )
-
+;; Some Erlang customizations
 (add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
 
 
@@ -781,18 +781,13 @@ sub print_usage() {
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(backup-by-copying-when-mismatch t)
- '(delete-selection-mode nil)
  '(gnus-mouse-face (quote highlight))
- '(mark-even-if-inactive t)
- '(safe-local-variable-values (quote ((c-set-style . "BSD"))))
- '(scroll-bar-mode (quote right))
  '(speedbar-mode-specific-contents-flag t)
  '(speedbar-show-unknown-files t)
  '(speedbar-smart-directory-expand-flag t)
  '(speedbar-supported-extension-expressions (quote (".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".f\\(90\\|77\\|or\\)?" ".ada" ".pl" ".tcl" ".m" ".scm" ".pm" ".py" ".s?html" "Makefile\\(\\.in\\)?" ".e")))
  '(speedbar-use-imenu-flag t)
  '(speedbar-visiting-file-hook nil)
- '(transient-mark-mode 1)
  '(verilog-auto-endcomments t)
  '(verilog-auto-save-policy (quote ask))
  '(verilog-compiler "vlog ")

@@ -770,3 +770,34 @@ cd /devel/odbc_try/
 ghci -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
 ghci -i.:/home/kv/.cabal/lib/HDBC-2.2.6.1/ghc-6.10.4/:/home/kv/.cabal/lib/HDBC-odbc-2.2.3.0/ghc-6.10.4/
 exit
+ls
+./gpu_join 
+export OMP_NUM_THREADS=4
+./gpu_join 
+export OMP_NUM_THREADS=2
+./gpu_join 
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+./gpu_join 
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+./gpu_join 
+g++ -g gpu_join.cpp -lodbc -fopenmp -lm -o gpu_join
+time ./gpu_join 
+exit
+erl
+erl
+exit
+etags
+etags --help
+hasktags
+etags --help
+find ~ -name '*hasktags*'
+~/.cabal/bin/hasktags --help
+~/.cabal/bin/hasktags -b *
+ls
+cat TAGS 
+exit
+~/.cabal/bin/hasktags -b *
+exit

@@ -25,10 +25,10 @@
 
 
 ;;(setq tramp-default-method "ssh"
-;; (setq tramp-default-user "Kostya"
-;;       tramp-remote-sh "C:\\cygwin\\cygwin"
-;; ;;      shell-prompt-pattern " "
-;;       tramp-chunksize 500)
+(setq tramp-default-user "Kostya"
+      (tramp-remote-sh "/bin/sh")
+;;      shell-prompt-pattern " "
+      tramp-chunksize 500)
 
 (setq tramp-verbose 10) 
 (setq tramp-debug-buffer t) 
